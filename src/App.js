@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route } from 'react-router-dom'
+import TripsContainer from './containers/TripsContainer'
+import ParksContainer from './containers/ParksContainer'
+import Welcome from './components/Welcome'
+import Header from './components/Header'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = { trip: {}}
+
+  appClickHandler = trip_obj => {
+    this.setState({trip: trip_obj}, () => console.log('hi'))
+  }
+
+  render() {
+    return (
+      <div>
+        <Header />
+        <Route path='/' component={Welcome}/>
+        <Route path='/trips' render={() => <TripsContainer appClickHandler={this.appClickHandler}/>} />
+        <Route path='/parks' render={() => <ParksContainer appClickHandler={this.appClickHandler}/>} />
+      </div>
+    );
+  }
+ 
 }
-
 export default App;
