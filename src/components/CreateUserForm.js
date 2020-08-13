@@ -2,8 +2,8 @@ import React from "react";
 
 class CreateUserForm extends React.Component {
   state = {
-    firstname: "",
-    lastname: "",
+    first_name: "",
+    last_name: "",
     username: "",
     password: "",
     bio: "",
@@ -18,10 +18,10 @@ class CreateUserForm extends React.Component {
 
   submitHandler = (e) => {
     e.preventDefault();
-    this.props.signUpHandler(this.state);
+    this.props.submitHandler(this.state);
     this.setState({
-      firstname: "",
-      lastname: "",
+      first_name: "",
+      last_name: "",
       username: "",
       password: "",
       bio: "",
@@ -37,17 +37,17 @@ class CreateUserForm extends React.Component {
         <form onSubmit={this.submitHandler}>
           <input
             type='text'
-            name='firstname'
+            name='first_name'
             placeholder='enter your first name'
-            value={this.state.firstname}
+            value={this.state.first_name}
             onChange={this.changeHandler}
           />
           <br />
           <input
             type='text'
-            name='lastname'
+            name='last_name'
             placeholder='enter your last name'
-            value={this.state.lastname}
+            value={this.state.last_name}
             onChange={this.changeHandler}
           />
           <br />

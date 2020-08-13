@@ -20,14 +20,6 @@ class App extends React.Component {
     this.onTermSubmit();
   }
 
-  // don't need this createUserSubmitHandler since we're doing sign up?
-  // createUserSubmitHandler = (obj) => {
-  //   let newUsersArray = [...this.state.users, obj];
-  //   this.setState({
-  //     users: newUsersArray,
-  //   });
-  // };
-
   searchTripsSubmitHandler = (searchTerm) => {
     //fetch from our backend?
   };
@@ -40,24 +32,23 @@ class App extends React.Component {
       parks: response.data,
       selectedPark: response.data[0]
     });
-    console.log(this.state.parks)
   };
 
   signUpHandler = (userObj) => {
-    fetch("http://localhost:3000/api/v1/users", {
+    console.log(userObj)
+    fetch("http://localhost:3001/api/v1/users", {
       method: "POST",
       headers: {
         "accepts": "application/json",
         "content-type": "application/json"
       },
-      body: JSON.stringify({ user: userObj })
+      body: JSON.stringify({user: userObj})
     })
       .then(resp => resp.json())
       .then(console.log)
   }
 
   render() {
-    console.log(this.state);
     return (
       <div>
         <Header />
