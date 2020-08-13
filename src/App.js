@@ -6,6 +6,7 @@ import Welcome from "./components/Welcome";
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import Search from "./components/Search";
+import LoginForm from './components/LoginForm'
 import CreateUserForm from "./components/CreateUserForm";
 import nps from "./apis/nps";
 
@@ -45,7 +46,23 @@ class App extends React.Component {
       body: JSON.stringify({user: userObj})
     })
       .then(resp => resp.json())
-      .then(console.log)
+      .then(userInfo =>this.setState({user: userInfo}, () => {
+
+      }))
+  }
+
+  loginHandler = (userInfo) => {
+    console.log(userInfo)
+    fetch("http://localhost:3001/api/v1/login", {
+      method: "POST",
+      headers: {
+        accepts: "application/json",
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ user: userInfo }),
+    })
+      .then((resp) => resp.json())
+      .then(console.log);
   }
 
   render() {
@@ -56,27 +73,40 @@ class App extends React.Component {
         <Route
           path='/trips'
           render={() => (
-            <TripsContainer user={this.state.user} appClickHandler={this.appClickHandler} />
+            <TripsContainer
+              user={this.state.user}
+              appClickHandler={this.appClickHandler}
+            />
           )}
         />
         <Route
           path='/parks'
           render={() => (
-            <ParksContainer parks={this.state.parks} appClickHandler={this.appClickHandler} onFormSubmit={this.onTermSubmit} />
+            <ParksContainer
+              parks={this.state.parks}
+              appClickHandler={this.appClickHandler}
+              onFormSubmit={this.onTermSubmit}
+            />
           )}
         />
         <Route
           path='/signup'
           render={() => (
             <CreateUserForm
-              user={this.state.user} submitHandler={this.signUpHandler}
+              user={this.state.user}
+              submitHandler={this.signUpHandler}
             />
           )}
         />
         <Route
-          path='/home'
-          render={() => <Welcome  />}
+          path='/login'
+          render={() => (
+            <LoginForm
+              submitHandler={this.loginHandler}
+            />
+          )}
         />
+        <Route path='/home' render={() => <Welcome />} />
       </div>
     );
   }
