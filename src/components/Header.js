@@ -1,11 +1,12 @@
 import React from 'react'
 
-class Header extends React.Component {
-  render() {
+const Header = () => {
     return (
-      <div>Header</div>
+      <div className='ui secondary pointing menu'>
+        <div className>Header</div>
+
+      </div>
     )
-  }
 }
 
 export default Header
