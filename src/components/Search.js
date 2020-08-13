@@ -11,7 +11,7 @@ const Search = ({ onFormSubmit }) => {
 
     return (
     <div>
-      Search for Trips!
+      Search for Parks!
       <br />
       <form onSubmit={onSubmit}>
         <input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}/>

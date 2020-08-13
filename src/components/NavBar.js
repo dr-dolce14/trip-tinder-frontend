@@ -13,9 +13,9 @@ function NavBar() {
             <NavLink to="/parks">
                 <li>Parks</li>
             </NavLink>
-            <NavLink to="/search">
-                <li>Search Trips</li>
-            </NavLink>
+            {/* <NavLink to="/search">
+                <li>Search Parks</li>
+            </NavLink> */}
             <NavLink to="/signup">
                 <li>Sign up!</li>
             </NavLink>

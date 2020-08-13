@@ -57,12 +57,8 @@ class App extends React.Component {
         <Route
           path='/parks'
           render={() => (
-            <ParksContainer appClickHandler={this.appClickHandler} />
+            <ParksContainer parks={this.state.parks} appClickHandler={this.appClickHandler} onFormSubmit={this.onTermSubmit} />
           )}
-        />
-        <Route
-          path='/search'
-          render={() => <Search onFormSubmit={this.onTermSubmit} />}
         />
         <Route
           path='/signup'
