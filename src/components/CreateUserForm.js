@@ -18,7 +18,7 @@ class CreateUserForm extends React.Component {
 
   submitHandler = (e) => {
     e.preventDefault();
-    this.props.createUserSubmitHandler(this.state);
+    this.props.signUpHandler(this.state);
     this.setState({
       firstname: "",
       lastname: "",

@@ -10,7 +10,7 @@ import CreateUserForm from "./components/CreateUserForm";
 import nps from "./apis/nps";
 
 class App extends React.Component {
-  state = { selectedPark: '', parks: [], trip: {}, users: [] };
+  state = { selectedPark: '', parks: [], trip: {}, user: null }; // is null wrong here? i tried nil and it didn't work
 
   appClickHandler = (trip_obj) => {
     this.setState({ trip: trip_obj }, () => console.log("hi"));
@@ -20,12 +20,13 @@ class App extends React.Component {
     this.onTermSubmit();
   }
 
-  createUserSubmitHandler = (obj) => {
-    let newUsersArray = [...this.state.users, obj];
-    this.setState({
-      users: newUsersArray,
-    });
-  };
+  // don't need this createUserSubmitHandler since we're doing sign up?
+  // createUserSubmitHandler = (obj) => {
+  //   let newUsersArray = [...this.state.users, obj];
+  //   this.setState({
+  //     users: newUsersArray,
+  //   });
+  // };
 
   searchTripsSubmitHandler = (searchTerm) => {
     //fetch from our backend?
@@ -42,6 +43,19 @@ class App extends React.Component {
     console.log(this.state.parks)
   };
 
+  signUpHandler = (userObj) => {
+    fetch("http://localhost:3000/api/v1/users", {
+      method: "POST",
+      headers: {
+        "accepts": "application/json",
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({ user: userObj })
+    })
+      .then(resp => resp.json())
+      .then(console.log)
+  }
+
   render() {
     console.log(this.state);
     return (
@@ -51,7 +65,7 @@ class App extends React.Component {
         <Route
           path='/trips'
           render={() => (
-            <TripsContainer appClickHandler={this.appClickHandler} />
+            <TripsContainer user={this.state.user} appClickHandler={this.appClickHandler} />
           )}
         />
         <Route
@@ -64,13 +78,13 @@ class App extends React.Component {
           path='/signup'
           render={() => (
             <CreateUserForm
-              createUserSubmitHandler={this.createUserSubmitHandler}
+              user={this.state.user} submitHandler={this.signUpHandler}
             />
           )}
         />
         <Route
           path='/home'
-          render={() => <Welcome users={this.state.users} />}
+          render={() => <Welcome  />}
         />
       </div>
     );
