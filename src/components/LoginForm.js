@@ -1,6 +1,7 @@
 import React from "react";
 import { Form, Input, Button, Checkbox } from 'antd';
 import { DownloadOutlined } from '@ant-design/icons';
+import '../resources/css/Form.css'
 
 const layout = {
   labelCol: {

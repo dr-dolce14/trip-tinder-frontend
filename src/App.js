@@ -8,7 +8,7 @@ import NavBar from "./components/NavBar";
 import Search from "./components/Search";
 import LoginForm from './components/LoginForm'
 import CreateUserForm from "./components/CreateUserForm";
-import nps from "./apis/nps";
+
 
 class App extends React.Component {
   state = { selectedPark: '', parks: [], trip: {}, user: null }; // is null wrong here? i tried nil and it didn't work
@@ -17,23 +17,23 @@ class App extends React.Component {
     this.setState({ trip: trip_obj });
   };
 
-  componentDidMount() {
-    this.onTermSubmit();
-  }
+  //componentDidMount() {
+  //  this.onTermSubmit();
+  //}
 
   searchTripsSubmitHandler = (searchTerm) => {
     //fetch from our backend?
   };
 
-  onTermSubmit = async (searchTerm) => {
-    const response = await nps.get('', {
-      params: {stateCode: `${searchTerm}`}});
-
-    this.setState({
-      parks: response.data,
-      selectedPark: response.data[0]
-    });
-  };
+  //onTermSubmit = async (searchTerm) => {
+  //  const response = await nps.get('', {
+  //    params: {stateCode: `${searchTerm}`}});
+//
+  //  this.setState({
+  //    parks: response.data,
+  //    selectedPark: response.data[0]
+  //  }, () => console.log(this.state));
+  //};
 
   signUpHandler = (userObj) => {
     console.log(userObj)
@@ -67,6 +67,10 @@ class App extends React.Component {
     return (
       <div>
         <NavBar />
+        <ParksContainer
+          parks={this.state.parks}
+          appClickHandler={this.appClickHandler}
+        />
         <Route
           path='/trips'
           render={() => (
@@ -82,7 +86,6 @@ class App extends React.Component {
             <ParksContainer
               parks={this.state.parks}
               appClickHandler={this.appClickHandler}
-              onFormSubmit={this.onTermSubmit}
             />
           )}
         />
@@ -98,11 +101,7 @@ class App extends React.Component {
         />
         <Route
           path='/login'
-          render={() => (
-            <LoginForm
-              submitHandler={this.loginHandler}
-            />
-          )}
+          render={() => <LoginForm submitHandler={this.loginHandler} />}
         />
       </div>
     );
