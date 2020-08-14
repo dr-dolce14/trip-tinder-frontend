@@ -74,10 +74,13 @@ class App extends React.Component {
     return (
       <div>
         <NavBar />
-        <Search submitHandler={this.onSearchSubmit} />
-        <TripsContainer
-          user={this.state.user}
-          appClickHandler={this.appClickHandler}
+        <Switch>
+        <Route 
+        path='/parks/search'
+        render={() => (
+        <Search submitHandler={this.onSearchSubmit}
+         />
+        )}
         />
         <Route
           path='/trips'
@@ -111,6 +114,7 @@ class App extends React.Component {
           path='/login'
           render={() => <LoginForm submitHandler={this.loginHandler} />}
         />
+        </Switch>
       </div>
     );
   }

@@ -1,5 +1,9 @@
 import React, { useState } from "react";
+<<<<<<< HEAD
 import nps from "../apis/nps";
+=======
+import { Redirect } from "react-router-dom"
+>>>>>>> cef63da8c6a04b85cb468d2b5280f1cb0f57175a
 
 const Search = (props) => {
   const [searchTerm, setSearchTerm] = useState('')
@@ -37,8 +41,11 @@ const Search = (props) => {
             <input className='btn-full' type='submit' value='search' />
             </div>
           </form>
+         
         </div>
       </section>
+     
+
     );
 }
 
