@@ -9,6 +9,7 @@ import Search from "./components/Search";
 import LoginForm from './components/LoginForm'
 import CreateUserForm from "./components/CreateUserForm";
 import nps from "./apis/nps";
+import './resources/css/style.css'
 
 class App extends React.Component {
   state = { selectedPark: '', parks: [], trip: {}, user: null }; // is null wrong here? i tried nil and it didn't work
@@ -83,8 +84,19 @@ class App extends React.Component {
     return (
       <div>
         <NavBar />
-         <Search submitHandler={this.onTermSubmit} />
-         <ParksContainer parks={this.state.parks}/>
+        <section>
+          <div className='row'>
+            <div className='hero-text-box'>
+              <h1>
+                The clearest way into the Universe is through a forest
+                wilderness.
+              </h1>{" "}
+              <br /> <h1>How will you get there?</h1>
+            </div>
+          </div>
+        </section>
+        <Search submitHandler={this.onTermSubmit} />
+        <ParksContainer parks={this.state.parks} />
         <Route
           path='/trips'
           render={() => (
