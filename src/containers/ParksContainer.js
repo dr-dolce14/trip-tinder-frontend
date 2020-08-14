@@ -1,6 +1,6 @@
 import React from "react";
-import Park from '../components/Park'
-import { Route } from 'react-router-dom'
+//import Park from '../components/Park'
+//import { Route } from 'react-router-dom'
 import Search from '../components/Search'
 
 const ParksContainer = (props) => {

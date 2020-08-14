@@ -31,8 +31,8 @@ class CreateUserForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Sign up Here</h1>
+      <div className="row">
+        <h2>Sign up Here</h2>
         <br />
         <form onSubmit={this.submitHandler}>
           <input
@@ -60,7 +60,7 @@ class CreateUserForm extends React.Component {
           />
           <br />
           <input
-            type='text'
+            type='password'
             name='password'
             placeholder='enter a password'
             value={this.state.password}
@@ -83,7 +83,7 @@ class CreateUserForm extends React.Component {
             onChange={this.changeHandler}
           />
           <br />
-          <input type='submit' value='Create your User Profile!' />
+          <input className="button" type='submit' value='Create your User Profile!' />
         </form>
       </div>
     );

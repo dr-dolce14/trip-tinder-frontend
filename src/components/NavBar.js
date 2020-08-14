@@ -3,23 +3,15 @@ import { NavLink } from 'react-router-dom'
 
 function NavBar() {
     return (
-      <ul>
-        <NavLink to='/home'>
-          <li>Welcome</li>
-        </NavLink>
-        <NavLink to='/trips'>
-          <li>Trips</li>
-        </NavLink>
-        <NavLink to='/parks'>
-          <li>Parks</li>
-        </NavLink>
-        <NavLink to='/signup'>
-          <li>Sign up!</li>
-        </NavLink>
-        <NavLink to='/login'>
-          <li>Log In</li>
-        </NavLink>
-      </ul>
+        <div className='row'>
+          <ul className='main-nav js--main-nav'>
+            <li><NavLink to='/trips'>Trips</NavLink></li>
+            <li><NavLink to='/parks'>Parks</NavLink></li>
+            <li><NavLink to='/about'>About Trinder</NavLink></li>
+            <li><NavLink to='/signup'>Sign up</NavLink></li>
+            <li><NavLink to='/login'>Log In</NavLink></li>
+          </ul>
+        </div>
     );
 }
 

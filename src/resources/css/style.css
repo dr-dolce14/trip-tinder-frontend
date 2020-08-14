@@ -1,0 +1,187 @@
+/*--------------------------------------------------*/
+/*BASIC SETUP*/
+/*--------------------------------------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+html,
+body
+ {
+    background-color: rgb(245, 245, 238);
+    color: #606060;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+}
+
+/*--------------------------------------------------*/
+/*REUSABLE COMPONENTS*/
+/*--------------------------------------------------*/
+
+.row {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+section { padding: 80px 0px; }
+
+
+.clearfix {zoom: 1}
+.clearfix:after {
+    content: '.';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+*-------------------HEADINGS---------------------*/
+
+h1,
+h2,
+h3  {   
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;  
+}
+
+h1 {
+    font-size: 240%;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #fff;
+    word-spacing: 4px;
+}
+
+h2 {
+    font-size: 180%;
+    word-spacing: 2px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h3 {
+    font-size: 110%;
+    margin-bottom: 15px;
+}
+
+h2:after {
+    display: block;
+    height: 2px;
+    background-color: #b9e63d;
+    content: " ";
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+/*--------------------------------------------------*/
+/*MAIN NAVI*/
+/*--------------------------------------------------*/
+
+.main-nav {
+  float: right;
+  list-style: none;
+  margin-top: 55px;
+}
+
+.main-nav li {
+  display: inline-block;
+  margin-left: 40px;
+}
+
+.main-nav li a:link,
+.main-nav li a:visited {
+  padding: 8px 0px;
+  color: rgb(17, 62, 73);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 90%;
+  border-bottom: 2px solid transparent;
+  -webkit-transition: border-bottom 0.2s;
+  -o-transition: border-bottom 0.2s;
+  transition: border-bottom 0.2s;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active {
+  border-bottom: 2px solid #b9e63d;
+}
+
+/*--------------------------------------------------*/
+/*mobile NAVI*/
+/*--------------------------------------------------*/
+
+.mobile-nav-icon {
+    float: right;
+    margin-top: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+.mobile-nav-icon i {
+    font-size: 200%;
+    color: #f7f7f7;
+}
+
+/*--------------------------------------------------*/
+/*FORM*/
+/*--------------------------------------------------*/
+
+.sign-up-form {
+    width: 60%;
+    margin: 0 auto;
+}
+
+input[type=text], 
+input[type=password], 
+select, 
+textarea {
+    width: 100%;
+    padding: 7px;
+    border-radius: 3px;
+    border: 1px solid #dbdbdb
+}
+
+textarea { height: 100px; }
+
+input[type=checkbox] { margin: 10px 5px 10px 0; }
+
+*:focus { outline: none; }
+
+
+/*--------------------------------------------------*/
+/*animations*/
+/*--------------------------------------------------*/
+
+.js--wp-1,
+.js--wp-2,
+.js--wp-3 {
+  opacity: 0;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+}
+
+.js--wp-4 {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+}
+
+.js--wp-1.animate__fadeIn,
+.js--wp-3.animate__fadeIn {
+  opacity: 1;
+}
+
+.js--wp-4.animate__pulse {
+  opacity: 1;
+}
+
+.js--wp-2.animate__fadeInUp {
+  opacity: 1;
+}

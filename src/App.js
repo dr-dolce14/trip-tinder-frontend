@@ -1,9 +1,9 @@
 import React from "react";
+
 import { Route } from "react-router-dom";
 import TripsContainer from "./containers/TripsContainer";
 import ParksContainer from "./containers/ParksContainer";
 import Welcome from "./components/Welcome";
-import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import Search from "./components/Search";
 import LoginForm from './components/LoginForm'
@@ -14,7 +14,7 @@ class App extends React.Component {
   state = { selectedPark: '', parks: [], trip: {}, user: null }; // is null wrong here? i tried nil and it didn't work
 
   appClickHandler = (trip_obj) => {
-    this.setState({ trip: trip_obj }, () => console.log("hi"));
+    this.setState({ trip: trip_obj });
   };
 
   componentDidMount() {
@@ -46,13 +46,11 @@ class App extends React.Component {
       body: JSON.stringify({user: userObj})
     })
       .then(resp => resp.json())
-      .then(userInfo =>this.setState({user: userInfo}, () => {
-
-      }))
+      .then(userObj =>this.setState({user: userObj}))
   }
 
+
   loginHandler = (userInfo) => {
-    console.log(userInfo)
     fetch("http://localhost:3001/api/v1/login", {
       method: "POST",
       headers: {
@@ -62,13 +60,12 @@ class App extends React.Component {
       body: JSON.stringify({ user: userInfo }),
     })
       .then((resp) => resp.json())
-      .then(console.log);
+      .then(userInfo => this.setState({user: userInfo}, ));
   }
 
   render() {
     return (
       <div>
-        <Header />
         <NavBar />
         <Route
           path='/trips'
@@ -89,6 +86,7 @@ class App extends React.Component {
             />
           )}
         />
+        <Route path='/about' render={() => <Welcome />} />
         <Route
           path='/signup'
           render={() => (
@@ -106,7 +104,6 @@ class App extends React.Component {
             />
           )}
         />
-        <Route path='/home' render={() => <Welcome />} />
       </div>
     );
   }
