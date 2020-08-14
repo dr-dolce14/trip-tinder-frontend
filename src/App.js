@@ -75,7 +75,7 @@ class App extends React.Component {
 
       const parksObj = response.data.data
         console.log(parksObj)
-        this.setState({ parks: parksObj }, () => console.log(this.state.parks));
+        this.setState({ parks: parksObj }, () => this.props.history.push("/parks"));
         
        
   };
@@ -84,7 +84,14 @@ class App extends React.Component {
     return (
       <div>
         <NavBar />
-        <Search submitHandler={this.onTermSubmit} />
+        <Switch>
+        <Route 
+        path='/parks/search'
+        render={() => (
+        <Search submitHandler={this.onTermSubmit}
+         />
+        )}
+        />
         <Route
           path='/trips'
           render={() => (
@@ -117,6 +124,7 @@ class App extends React.Component {
           path='/login'
           render={() => <LoginForm submitHandler={this.loginHandler} />}
         />
+        </Switch>
       </div>
     );
   }

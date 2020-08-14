@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom"
 
 const Search = (props) => {
   const [searchTerm, setSearchTerm] = useState('')
@@ -27,8 +28,11 @@ const Search = (props) => {
             <input className='btn-full' type='submit' value='search' />
             </div>
           </form>
+         
         </div>
       </section>
+     
+
     );
 }
 
