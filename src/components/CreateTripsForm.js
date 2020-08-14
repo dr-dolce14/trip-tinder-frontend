@@ -1,6 +1,7 @@
 import React from "react";
 
 class CreateTripsForm extends React.Component {
+
   state = {
     name: "",
     state: "",
@@ -8,8 +9,8 @@ class CreateTripsForm extends React.Component {
     start_date: "",
     end_date: "",
     park_id: "",
-    trip_lead: "",
-    difficulty_rating: "",
+    trip_lead: this.props.user,
+    difficulty_rating: 3,
   };
 
   changeHandler = (e) => {
@@ -20,17 +21,7 @@ class CreateTripsForm extends React.Component {
 
   submitHandler = (e) => {
     e.preventDefault();
-    this.props.tripHandler(this.state);
-    this.setState({
-      name: "",
-      state: "",
-      description: "",
-      start_date: "",
-      end_date: "",
-      park_id: "",
-      trip_lead: "",
-      difficulty_rating: "",
-    });
+    this.props.tripHandler(this.state)
   };
   render() {
     return (
@@ -55,7 +46,7 @@ class CreateTripsForm extends React.Component {
           <input
             type='text'
             name='description'
-            placeholder='Give a description of the activites and sights included in your trip'
+            placeholder='Give a description of the activities and sights included in your trip'
             value={this.state.description}
             onChange={this.changeHandler}
           />

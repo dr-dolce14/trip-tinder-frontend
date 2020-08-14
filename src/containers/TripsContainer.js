@@ -5,9 +5,19 @@ import CreateTripsForm from '../components/CreateTripsForm'
 
 class TripsContainer extends React.Component {
   
-  //fetch trip info here? 
-  //we should put the create trips form here and we don't want too many levels separating the from from the trip data, right?
-  createTripHandler = (obj) => {
+  createTripHandler = (tripObj) => {
+    fetch("http://localhost:3001/api/v1/trips", {
+      method: "POST",
+      headers: {
+        "accepts": "application/json",
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({trip: tripObj})
+    })
+      .then(resp => resp.json())
+      .then(newTrip => console.log(newTrip))
+  }
+  tripStateHandler = (obj) => {
     let newTrips = [...this.state.trips, obj]
     this.setState({
       trips: newTrips
@@ -19,7 +29,7 @@ class TripsContainer extends React.Component {
       <>
       {this.props.user ? 
        <div>
-      <CreateTripsForm tripHandler={this.createTripHandler} />
+      <CreateTripsForm user={this.props.user} tripHandler={this.createTripHandler} />
       <br />
        <SearchTrips />
        <br/>

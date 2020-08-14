@@ -8,7 +8,6 @@ import NavBar from "./components/NavBar";
 import Search from "./components/Search";
 import LoginForm from './components/LoginForm'
 import CreateUserForm from "./components/CreateUserForm";
-import nps from "./apis/nps";
 import './resources/css/style.css'
 
 class App extends React.Component {
@@ -48,7 +47,7 @@ class App extends React.Component {
       body: JSON.stringify({user: userObj})
     })
       .then(resp => resp.json())
-      .then(userObj =>this.setState({user: userObj}, () => this.props.history.push("/trips")))
+      .then(userObj =>this.setState({user: userObj}))
   }
 
   loginHandler = (userInfo) => {
@@ -61,21 +60,12 @@ class App extends React.Component {
       body: JSON.stringify({ user: userInfo }),
     })
       .then((resp) => resp.json())
-      .then(userInfo => this.setState({user: userInfo}, () => this.props.history.push("/trips") ));
+      .then(userInfo => this.setState({user: userInfo}));
   }
 
-  onTermSubmit = async (searchTerm) => {
-    console.log(searchTerm)
-      const response = await nps.get(
-        "",
-        {
-          params: { stateCode: `${searchTerm}` },
-        }
-      );
-
-      const parksObj = response.data.data
-        console.log(parksObj)
-        this.setState({ parks: parksObj }, () => console.log(this.state.parks));
+  onSearchSubmit = (parksObj) => {
+    console.log(parksObj)
+    this.setState({ parks: parksObj }, () => console.log(this.state.parks));
         
        
   };
@@ -84,7 +74,11 @@ class App extends React.Component {
     return (
       <div>
         <NavBar />
-        <Search submitHandler={this.onTermSubmit} />
+        <Search submitHandler={this.onSearchSubmit} />
+        <TripsContainer
+          user={this.state.user}
+          appClickHandler={this.appClickHandler}
+        />
         <Route
           path='/trips'
           render={() => (

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import nps from "../apis/nps";
 
 const Search = (props) => {
   const [searchTerm, setSearchTerm] = useState('')
@@ -6,9 +7,18 @@ const Search = (props) => {
   const onSubmit =  (e) => {
     e.preventDefault()
     console.log(props)
-    props.submitHandler(searchTerm)
+    onTermSubmit(searchTerm)
     console.log(searchTerm)
   }
+
+  const onTermSubmit = async (searchTerm) => {
+    const response = await nps.get("", {
+      params: { stateCode: `${searchTerm}` },
+    });
+    const parksObj = response.data.data;
+    console.log(parksObj);
+    props.submitHandler(parksObj)
+  };
     return (
       <section className='section-parks js--section-parks' id='parks'>
         <div className='box'>
