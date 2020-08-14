@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import Park from '../components/Park'
-//import { Route } from 'react-router-dom'
-
 
 class ParksContainer extends React.Component {
 
  renderParks =  (parksObj) => {
-   console.log(parksObj)
+   return parksObj.map((park, index) => <Park key={index} park={park}/>)
  }
 
 render() {
@@ -15,13 +13,10 @@ render() {
       <div>
         <h2>Parks:</h2>
       </div>
-      <div>{this.renderParks}</div>
+      <div>{this.renderParks(this.props.parks)}</div>
     </section>
   );
 }
-
-    
-  
 }
 
 export default ParksContainer;

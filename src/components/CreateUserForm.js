@@ -4,23 +4,6 @@ import { Route, Redirect } from 'react-router-dom'
 //import { DownloadOutlined } from "@ant-design/icons";
 import "../resources/css/Form.css";
 
-
-const layout = {
-  labelCol: {
-    span: 8,
-  },
-  wrapperCol: {
-    span: 16,
-  },
-};
-const tailLayout = {
-  wrapperCol: {
-    offset: 8,
-    span: 16,
-  },
-};
-
-
 class CreateUserForm extends React.Component {
   state = {
     first_name: "",
@@ -101,31 +84,30 @@ class CreateUserForm extends React.Component {
         </div>
         <div className="row">
           <form onSubmit={this.submitHandler} className="sign-up-form">
-            <div class="row">
-          <div class="col span-1-of-3">
-              <label for="first_name">First Name</label>
-          </div>
-
-          <div class="col span-2-of-3">
-            <input
-              type='text'
-              name='first_name'
-              placeholder='enter your first name'
-              value={this.state.first_name}
-              onChange={this.changeHandler} noValidate
-            />
-            {(this.state.errors.first_name.length > 0) && 
-            (<span>{this.state.errors.first_name}</span>)}
-          </div>
-          </div>
-
-            
             <div className="row">
-            <div class="col span-1-of-3">
+            <div className="col span-1-of-3">
+                <label for="first_name">First Name</label>
+            </div>
+
+            <div className="col span-2-of-3">
+              <input
+                type='text'
+                name='first_name'
+                placeholder='enter your first name'
+                value={this.state.first_name}
+                onChange={this.changeHandler} noValidate
+              />
+              {(this.state.errors.first_name.length > 0) && 
+              (<span>{this.state.errors.first_name}</span>)}
+            </div>
+          </div>
+
+            <div className="row">
+            <div className="col span-1-of-3">
               <label for="last_name">Last Name</label>
           </div>
 
-          <div class="col span-2-of-3">
+          <div className="col span-2-of-3">
             <input
               type='text'
               name='last_name'
@@ -138,11 +120,11 @@ class CreateUserForm extends React.Component {
             </div>
             </div>
               <div className="row">
-            <div class="col span-1-of-3">
-              <label for="userrname">Username</label>
+            <div className="col span-1-of-3">
+              <label for="username">Username</label>
           </div>
 
-          <div class="col span-2-of-3">
+          <div className="col span-2-of-3">
             <input
               type='text'
               name='username'
@@ -156,11 +138,11 @@ class CreateUserForm extends React.Component {
             </div>
 
             <div className="row">
-            <div class="col span-1-of-3">
+            <div className="col span-1-of-3">
               <label for="password">Password</label>
           </div>
 
-          <div class="col span-2-of-3">
+          <div className="col span-2-of-3">
             <input
               type='password'
               name='password'
@@ -169,14 +151,14 @@ class CreateUserForm extends React.Component {
               onChange={this.changeHandler}
             />
             </div>
-            </div>
+          </div>
 
             <div className="row">
-            <div class="col span-1-of-3">
+            <div className="col span-1-of-3">
               <label for="bio">Tell Us About Yourself</label>
           </div>
 
-          <div class="col span-2-of-3">
+          <div className="col span-2-of-3">
             <textarea
               type='text'
               name='bio'
@@ -188,11 +170,11 @@ class CreateUserForm extends React.Component {
               </div>
 
               <div className="row">
-            <div class="col span-1-of-3">
+            <div className="col span-1-of-3">
               <label for="avatar">Upload an image</label>
           </div>
 
-          <div class="col span-2-of-3">
+          <div className="col span-2-of-3">
             <input
               type='text'
               name='avatar'
@@ -202,15 +184,15 @@ class CreateUserForm extends React.Component {
             />
             </div>
             </div>
-             <div class="row">
-                <div class="col span-1-of-3">
+             <div className="row">
+                <div className="col span-1-of-3">
                     <label>&nbsp;</label>
                 </div>
-            <div class="col span-2-of-3">
+            <div className="col span-2-of-3">
             <input className="button" type='submit'    value='Create your User Profile!' />
             </div>
-            </div>
-            </form>
+          </div>
+          </form>
         </div>
       </section>
     );

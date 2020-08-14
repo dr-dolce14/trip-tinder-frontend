@@ -14,15 +14,16 @@ import './resources/css/style.css'
 class App extends React.Component {
   state = { selectedPark: '', parks: [], trip: {}, user: null }; // is null wrong here? i tried nil and it didn't work
 
-  //appClickHandler = (trip_obj) => {
-  //  this.setState({ trip: trip_obj });
-  //};
+  appClickHandler = (trip_obj) => {
+    this.setState({ trip: trip_obj });
+  };
+  
+  searchTripsSubmitHandler = (searchTerm) => {
 
   //componentDidMount() {
   //  this.onTermSubmit();
   //}
 
-  searchTripsSubmitHandler = (searchTerm) => {
     //fetch from our backend?
   };
 
@@ -50,7 +51,6 @@ class App extends React.Component {
       .then(userObj =>this.setState({user: userObj}))
   }
 
-
   loginHandler = (userInfo) => {
     fetch("http://localhost:3001/api/v1/login", {
       method: "POST",
@@ -75,8 +75,8 @@ class App extends React.Component {
 
       const parksObj = response.data.data
         console.log(parksObj)
-        this.setState({parks: parksObj})
-        console.log(this.state.parks)
+        this.setState({ parks: parksObj }, () => console.log(this.state.parks));
+        
        
   };
 
@@ -85,7 +85,6 @@ class App extends React.Component {
       <div>
         <NavBar />
         <Search submitHandler={this.onTermSubmit} />
-        <ParksContainer parks={this.state.parks} />
         <Route
           path='/trips'
           render={() => (
