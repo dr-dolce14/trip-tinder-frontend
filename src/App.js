@@ -9,9 +9,10 @@ import Search from "./components/Search";
 import LoginForm from './components/LoginForm'
 import CreateUserForm from "./components/CreateUserForm";
 import nps from "./apis/nps";
+import './resources/css/style.css'
 
 class App extends React.Component {
-  state = { selectedPark: '', parks: [], trips: [], trip: {}, user: null }; 
+  state = { selectedPark: '', parks: [], trip: {}, user: null }; // is null wrong here? i tried nil and it didn't work
 
   //appClickHandler = (trip_obj) => {
   //  this.setState({ trip: trip_obj });
@@ -83,15 +84,14 @@ class App extends React.Component {
     return (
       <div>
         <NavBar />
-         <Search submitHandler={this.onTermSubmit} />
-         <ParksContainer parks={this.state.parks}/>
+        <Search submitHandler={this.onTermSubmit} />
+        <ParksContainer parks={this.state.parks} />
         <Route
           path='/trips'
           render={() => (
             <TripsContainer
               user={this.state.user}
               appClickHandler={this.appClickHandler}
-              trips={this.state.trips}
             />
           )}
         />

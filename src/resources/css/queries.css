@@ -34,10 +34,10 @@
         margin-left: 35px;
     }
     
-    .main-nav li { display: block; }
+    .main-nav { display: block; }
     
-    .main-nav li a:link,
-    .main-nav li a:visited {
+    .main-nav a:link,
+    .main-nav a:visited {
         display: block;
         border: 0;
         padding: 10px 0;

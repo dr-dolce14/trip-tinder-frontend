@@ -1,5 +1,25 @@
 import React from "react";
 import { Route, Redirect } from 'react-router-dom'
+//import { Form, Input, Button, Checkbox } from "antd";
+//import { DownloadOutlined } from "@ant-design/icons";
+import "../resources/css/Form.css";
+
+
+const layout = {
+  labelCol: {
+    span: 8,
+  },
+  wrapperCol: {
+    span: 16,
+  },
+};
+const tailLayout = {
+  wrapperCol: {
+    offset: 8,
+    span: 16,
+  },
+};
+
 
 class CreateUserForm extends React.Component {
   state = {
@@ -75,67 +95,124 @@ class CreateUserForm extends React.Component {
 
   render() {
     return (
-      <div className="row">
-        <h2>Sign up Here</h2>
-        <br />
-        <form onSubmit={this.submitHandler}>
-          <input
-            type='text'
-            name='first_name'
-            placeholder='enter your first name'
-            value={this.state.first_name}
-            onChange={this.changeHandler} noValidate
-          />
-          {this.state.errors.first_name.length > 0 && 
-          <span>{this.state.errors.first_name}</span>}
-          <br />
-          <input
-            type='text'
-            name='last_name'
-            placeholder='enter your last name'
-            value={this.state.last_name}
-            onChange={this.changeHandler} noValidate
-          />
-          {this.state.errors.last_name.length > 0 &&
-          <span>{this.state.errors.last_name}</span>}
-          <br />
-          <input
-            type='text'
-            name='username'
-            placeholder='enter a user name'
-            value={this.state.username}
-            onChange={this.changeHandler} noValidate
-          />
-          {this.state.errors.username.length > 0 &&
-          <span>{this.state.errors.username}</span>}
-          <br />
-          <input
-            type='password'
-            name='password'
-            placeholder='enter a password'
-            value={this.state.password}
-            onChange={this.changeHandler}
-          />
-          <br />
-          <input
-            type='text'
-            name='bio'
-            placeholder='briefly describe yourself'
-            value={this.state.bio}
-            onChange={this.changeHandler}
-          />
-          <br />
-          <input
-            type='text'
-            name='avatar'
-            placeholder='url for avatar image'
-            value={this.state.avatar}
-            onChange={this.changeHandler}
-          />
-          <br />
-          <input className="button" type='submit' value='Create your User Profile!' />
-        </form>
-      </div>
+      <section>
+        <div className="row">
+          <h2>Sign up Here</h2>
+        </div>
+        <div className="row">
+          <form onSubmit={this.submitHandler} className="sign-up-form">
+            <div class="row">
+          <div class="col span-1-of-3">
+              <label for="first_name">First Name</label>
+          </div>
+
+          <div class="col span-2-of-3">
+            <input
+              type='text'
+              name='first_name'
+              placeholder='enter your first name'
+              value={this.state.first_name}
+              onChange={this.changeHandler} noValidate
+            />
+            {(this.state.errors.first_name.length > 0) && 
+            (<span>{this.state.errors.first_name}</span>)}
+          </div>
+          </div>
+
+            
+            <div className="row">
+            <div class="col span-1-of-3">
+              <label for="last_name">Last Name</label>
+          </div>
+
+          <div class="col span-2-of-3">
+            <input
+              type='text'
+              name='last_name'
+              placeholder='enter your last name'
+              value={this.state.last_name}
+              onChange={this.changeHandler} noValidate
+            />
+            {(this.state.errors.last_name.length > 0 )&&
+            (<span>{this.state.errors.last_name}</span>)}
+            </div>
+            </div>
+              <div className="row">
+            <div class="col span-1-of-3">
+              <label for="userrname">Username</label>
+          </div>
+
+          <div class="col span-2-of-3">
+            <input
+              type='text'
+              name='username'
+              placeholder='enter a user name'
+              value={this.state.username}
+              onChange={this.changeHandler} noValidate
+            />
+             {(this.state.errors.username.length > 0 )&&
+            (<span>{this.state.errors.username}</span>)}
+            </div>
+            </div>
+
+            <div className="row">
+            <div class="col span-1-of-3">
+              <label for="password">Password</label>
+          </div>
+
+          <div class="col span-2-of-3">
+            <input
+              type='password'
+              name='password'
+              placeholder='enter a password'
+              value={this.state.password}
+              onChange={this.changeHandler}
+            />
+            </div>
+            </div>
+
+            <div className="row">
+            <div class="col span-1-of-3">
+              <label for="bio">Tell Us About Yourself</label>
+          </div>
+
+          <div class="col span-2-of-3">
+            <textarea
+              type='text'
+              name='bio'
+              placeholder='briefly describe yourself'
+              value={this.state.bio}
+              onChange={this.changeHandler}
+            />
+            </div>
+              </div>
+
+              <div className="row">
+            <div class="col span-1-of-3">
+              <label for="avatar">Upload an image</label>
+          </div>
+
+          <div class="col span-2-of-3">
+            <input
+              type='text'
+              name='avatar'
+              placeholder='url for avatar image'
+              value={this.state.avatar}
+              onChange={this.changeHandler}
+            />
+            </div>
+            </div>
+             <div class="row">
+                <div class="col span-1-of-3">
+                    <label>&nbsp;</label>
+                </div>
+            <div class="col span-2-of-3">
+            <input className="button" type='submit'    value='Create your User Profile!' />
+            </div>
+            </div>
+            </form>
+        </div>
+      </section>
     );
   }
 }
