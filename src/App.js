@@ -13,6 +13,20 @@ import './resources/css/style.css'
 class App extends React.Component {
   state = { selectedPark: '', parks: [], trip: {}, user: null }; // is null wrong here? i tried nil and it didn't work
 
+  componentDidMount() {
+    const token = localStorage.getItem("token")
+    if(token) {
+      fetch("http://localhost:3001/api/v1/profile", {
+        method: "GET",
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then(resp => resp.json())
+      .then(data => this.setState({ user: data.user }))
+    } else {
+      this.props.history.push('/signup')
+    }
+  }
+
   appClickHandler = (trip_obj) => {
     this.setState({ trip: trip_obj });
   };
@@ -60,20 +74,29 @@ class App extends React.Component {
       body: JSON.stringify({ user: userInfo }),
     })
       .then((resp) => resp.json())
-      .then(userInfo => this.setState({user: userInfo}, () => this.props.history.push('/trips')));
+      .then(userInfo => {
+        localStorage.setItem("token", userInfo.jwt)
+        this.setState({user: userInfo}, () => this.props.history.push('/trips'));
+  })
   }
 
   onSearchSubmit = (parksObj) => {
     console.log(parksObj)
     this.setState({ parks: parksObj }, () => this.props.history.push('/parks'));
         
-       
   };
+
+  logOutHandler = () => {
+    localStorage.removeItem("token")
+    this.props.history.push('/login')
+    this.setState({ user: null })
+  }
+
 
   render() {
     return (
       <div>
-        <NavBar />
+        <NavBar user={this.state.user} clickHandler={this.logOutHandler}/>
         <Switch>
         <Route 
         path='/parks/search'
