@@ -20,6 +20,7 @@ class CreateTripsForm extends React.Component {
   };
 
   submitHandler = (e) => {
+      console.log(this.props, this.state)
     e.preventDefault();
     this.props.tripHandler(this.state)
   };
