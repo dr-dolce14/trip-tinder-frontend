@@ -1,32 +1,14 @@
 import React, { useState } from "react";
-import nps from "../apis/nps";
 
 const Search = (props) => {
   const [searchTerm, setSearchTerm] = useState('')
 
-    const onTermSubmit = async (searchTerm) => {
-      const response = await nps.get(
-        "",
-        {
-          params: { stateCode: `${searchTerm}` },
-        }
-      );
-
-      const parksObj = response.data.data
-
-      console.log(parksObj)
-      props.renderParks(parksObj)
-
-    };
-
-
   const onSubmit =  (e) => {
     e.preventDefault()
     console.log(props)
-    onTermSubmit(searchTerm)
+    props.submitHandler(searchTerm)
     console.log(searchTerm)
   }
-
     return (
       <section className='section-parks js--section-parks' id='parks'>
         <div className='row sign-up-form' >
