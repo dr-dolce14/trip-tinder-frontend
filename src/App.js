@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Route } from "react-router-dom";
+import { Route, withRouter, Switch } from "react-router-dom";
 import TripsContainer from "./containers/TripsContainer";
 import ParksContainer from "./containers/ParksContainer";
 import Welcome from "./components/Welcome";
@@ -46,7 +46,7 @@ class App extends React.Component {
       body: JSON.stringify({user: userObj})
     })
       .then(resp => resp.json())
-      .then(userObj =>this.setState({user: userObj}))
+      .then(userObj =>this.setState({user: userObj}, () => this.props.history.push("/trips")))
   }
 
 
@@ -60,7 +60,7 @@ class App extends React.Component {
       body: JSON.stringify({ user: userInfo }),
     })
       .then((resp) => resp.json())
-      .then(userInfo => this.setState({user: userInfo}, ));
+      .then(userInfo => this.setState({user: userInfo}, () => this.props.history.push("/trips") ));
   }
 
   onTermSubmit = async (searchTerm) => {
@@ -122,4 +122,4 @@ class App extends React.Component {
     );
   }
 }
-export default App;
+export default withRouter(App);
