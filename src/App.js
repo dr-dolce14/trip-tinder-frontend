@@ -12,7 +12,7 @@ import nps from "./apis/nps";
 import './resources/css/style.css'
 
 class App extends React.Component {
-  state = { selectedPark: '', parks: [], trip: {}, user: null }; // is null wrong here? i tried nil and it didn't work
+  state = { selectedPark: '', parks: [], trips: [], trip: {}, user: null }; 
 
   //appClickHandler = (trip_obj) => {
   //  this.setState({ trip: trip_obj });
@@ -103,6 +103,7 @@ class App extends React.Component {
             <TripsContainer
               user={this.state.user}
               appClickHandler={this.appClickHandler}
+              trips={this.state.trips}
             />
           )}
         />
