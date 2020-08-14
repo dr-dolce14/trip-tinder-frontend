@@ -47,7 +47,7 @@ class App extends React.Component {
       body: JSON.stringify({user: userObj})
     })
       .then(resp => resp.json())
-      .then(userObj =>this.setState({user: userObj}))
+      .then(userObj =>this.setState({user: userObj}, () => this.props.history.push('/trips')))
   }
 
   loginHandler = (userInfo) => {
@@ -60,12 +60,12 @@ class App extends React.Component {
       body: JSON.stringify({ user: userInfo }),
     })
       .then((resp) => resp.json())
-      .then(userInfo => this.setState({user: userInfo}));
+      .then(userInfo => this.setState({user: userInfo}, () => this.props.history.push('/trips')));
   }
 
   onSearchSubmit = (parksObj) => {
     console.log(parksObj)
-    this.setState({ parks: parksObj }, () => console.log(this.state.parks));
+    this.setState({ parks: parksObj }, () => this.props.history.push('/parks'));
         
        
   };
