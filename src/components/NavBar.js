@@ -16,7 +16,7 @@ function NavBar(props) {
               <NavLink to='/signup'>Sign up</NavLink>
               
               {props.user ? 
-              <button onClick={props.clickHandler}>Log out</button> :
+              <NavLink to="/login" onClick={props.clickHandler}>Log out</NavLink> :
               <NavLink to='/login'>Log In</NavLink>
             }
             </div>
