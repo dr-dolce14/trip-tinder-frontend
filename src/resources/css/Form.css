@@ -7,6 +7,10 @@
     margin: 0 auto;
 }
 
+.title {
+    align-items: center;
+}
+
 input[type=text], 
 input[type=password], 
 select, 
@@ -19,7 +23,9 @@ textarea {
 
 textarea { height: 100px; }
 
-input[type=checkbox] { margin: 10px 5px 10px 0; }
+input[type=radio] { margin: 10px 5px 10px 0; }
 
 *:focus { outline: none; }
+
+
 

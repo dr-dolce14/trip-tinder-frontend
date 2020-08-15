@@ -1,7 +1,6 @@
 import React from "react";
 
 class CreateTripsForm extends React.Component {
-
   state = {
     name: "",
     state: "",
@@ -9,8 +8,22 @@ class CreateTripsForm extends React.Component {
     start_date: "",
     end_date: "",
     park_id: "",
-    trip_lead: this.props.user,
     difficulty_rating: 3,
+  };
+
+  createTripHandler = async (tripObj) => {
+    let auth_token = this.props.user.jwt;
+    await fetch("http://localhost:3001/api/v1/trips", {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + auth_token,
+        accepts: "application/json",
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ trip: tripObj, trip_lead: this.props.user }),
+    })
+      .then((resp) => resp.json())
+      .then((newTrip) => this.props.stateHandler(newTrip));
   };
 
   changeHandler = (e) => {
@@ -20,10 +33,11 @@ class CreateTripsForm extends React.Component {
   };
 
   submitHandler = (e) => {
-      console.log(this.props, this.state)
+    console.log(this.props, this.state);
     e.preventDefault();
-    this.props.tripHandler(this.state)
+    this.createTripHandler(this.state);
   };
+
   render() {
     return (
       <div className='row'>
@@ -44,7 +58,7 @@ class CreateTripsForm extends React.Component {
             value={this.state.state}
             onChange={this.changeHandler}
           />
-          <input
+          <textarea
             type='text'
             name='description'
             placeholder='Give a description of the activities and sights included in your trip'

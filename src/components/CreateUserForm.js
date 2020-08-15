@@ -1,7 +1,4 @@
 import React from "react";
-import { Route, Redirect } from 'react-router-dom'
-//import { Form, Input, Button, Checkbox } from "antd";
-//import { DownloadOutlined } from "@ant-design/icons";
 import "../resources/css/Form.css";
 
 class CreateUserForm extends React.Component {

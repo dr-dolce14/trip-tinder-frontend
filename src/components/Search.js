@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import nps from "../apis/nps";
+import "../resources/css/Form.css";
 import { Redirect } from "react-router-dom"
 
 const Search = (props) => {
@@ -7,9 +8,7 @@ const Search = (props) => {
 
   const onSubmit =  (e) => {
     e.preventDefault()
-    console.log(props)
     onTermSubmit(searchTerm)
-    console.log(searchTerm)
   }
 
   const onTermSubmit = async (searchTerm) => {
@@ -41,8 +40,6 @@ const Search = (props) => {
          
         </div>
       </section>
-     
-
     );
 }
 

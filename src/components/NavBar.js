@@ -9,7 +9,7 @@ function NavBar(props) {
         <nav>
           <div className='row'>
             <div className='main-nav js--main-nav'>
-              <NavLink to='/trips'>Trips</NavLink>
+              <NavLink to='/trips/search'>Trips</NavLink>
               {/* <NavLink to='/parks'>Parks</NavLink> */}
               <NavLink to='/parks/search'>Search Parks</NavLink>
               <NavLink to='/about'>About Trinder</NavLink>

@@ -6,12 +6,13 @@ import ParksContainer from "./containers/ParksContainer";
 import Welcome from "./components/Welcome";
 import NavBar from "./components/NavBar";
 import Search from "./components/Search";
+import SearchTrips from "./components/SearchTrips";
 import LoginForm from './components/LoginForm'
 import CreateUserForm from "./components/CreateUserForm";
 import './resources/css/style.css'
 
 class App extends React.Component {
-  state = { selectedPark: '', parks: [], trip: {}, user: null }; // is null wrong here? i tried nil and it didn't work
+  state = { selectedPark: '', trips: [], parks: [], user: null }
 
   componentDidMount() {
     const token = localStorage.getItem("token")
@@ -20,35 +21,16 @@ class App extends React.Component {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
       })
-      .then(resp => resp.json())
-      .then(data => this.setState({ user: data.user }))
-    } else {
-      this.props.history.push('/signup')
+        .then((resp) => resp.json())
+        .then((data) =>
+          this.setState({ user: data.user }, () =>
+            this.props.history.push("/trips")
+          )
+        );
+    //} else {
+      //this.props.history.push('/trips')
     }
   }
-
-  appClickHandler = (trip_obj) => {
-    this.setState({ trip: trip_obj });
-  };
-  
-  searchTripsSubmitHandler = (searchTerm) => {
-
-  //componentDidMount() {
-  //  this.onTermSubmit();
-  //}
-
-    //fetch from our backend?
-  };
-
-  //onTermSubmit = async (searchTerm) => {
-  //  const response = await nps.get('', {
-  //    params: {stateCode: `${searchTerm}`}});
-//
-  //  this.setState({
-  //    parks: response.data,
-  //    selectedPark: response.data[0]
-  //  }, () => console.log(this.state));
-  //};
 
   signUpHandler = (userObj) => {
     console.log(userObj)
@@ -80,18 +62,23 @@ class App extends React.Component {
   })
   }
 
-  onSearchSubmit = (parksObj) => {
-    console.log(parksObj)
-    this.setState({ parks: parksObj }, () => this.props.history.push('/parks'));
-        
-  };
-
   logOutHandler = () => {
     localStorage.removeItem("token")
     this.props.history.push('/login')
     this.setState({ user: null })
   }
 
+  onSearchSubmit = (parksObj) => {
+    console.log(parksObj)
+    this.setState({ parks: parksObj }, () => this.props.history.push('/parks'));
+        
+  };
+
+  tripsHandler = (tripsObj) => {
+    this.setState({ trips: tripsObj}, () =>
+    this.props.history.push('/trips')
+    );
+  }
 
   render() {
     return (
@@ -106,19 +93,30 @@ class App extends React.Component {
         )}
         />
         <Route
-          path='/trips'
-          render={() => (
-            <TripsContainer
-              user={this.state.user}
-              appClickHandler={this.appClickHandler}
-            />
-          )}
+          path='/trips/search'
+          render={() => ( <SearchTrips stateHandler={this.tripsHandler}/>)}
+            //<TripsContainer
+            //  user={this.state.user}
+            //  appClickHandler={this.appClickHandler}
+            //  trips={this.state.trips}
+            //  stateHandler={this.tripsHandler}
+            ///>
+          ///)}
         />
         <Route
           path='/parks'
           render={() => (
             <ParksContainer
               parks={this.state.parks}
+              appClickHandler={this.appClickHandler}
+            />
+          )}
+        />
+        <Route
+          path='/trips'
+          render={() => (
+            <TripsContainer
+              trips={this.state.trips}
               appClickHandler={this.appClickHandler}
             />
           )}
@@ -142,4 +140,5 @@ class App extends React.Component {
     );
   }
 }
+
 export default withRouter(App);
