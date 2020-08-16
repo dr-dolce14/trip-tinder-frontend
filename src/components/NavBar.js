@@ -1,7 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import '../resources/css/MainNav.css'
-import { OmitProps } from 'antd/lib/transfer/ListBody';
 
 function NavBar(props) {
     return (
@@ -11,8 +10,8 @@ function NavBar(props) {
             <div className='main-nav js--main-nav'>
               <NavLink to='/trips/search'>Trips</NavLink>
               {/* <NavLink to='/parks'>Parks</NavLink> */}
-              <NavLink className="js--scroll-to-start" to='/parks/search'>Search Parks</NavLink>
               <NavLink to='/about'>About Trinder</NavLink>
+              <NavLink className="js--scroll-to-start" to='/parks/search'>Search Parks</NavLink>
               <NavLink to='/signup'>Sign up</NavLink>
               
               {props.user ? 

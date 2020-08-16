@@ -3,18 +3,22 @@ import React from "react";
 import { Route, withRouter, Switch } from "react-router-dom";
 import TripsContainer from "./containers/TripsContainer";
 import ParksContainer from "./containers/ParksContainer";
-import Welcome from "./components/Welcome";
+import About from "./components/About";
 import NavBar from "./components/NavBar";
 import Search from "./components/Search";
 import SearchTrips from "./components/SearchTrips";
 import LoginForm from './components/LoginForm'
 import CreateUserForm from "./components/CreateUserForm";
+import Trips from "./components/Trips";
+import Parks from "./components/Parks";
+import Testimonials from "./components/Testimonials";
 import './resources/css/style.css'
 
 class App extends React.Component {
   state = { selectedPark: '', trips: [], parks: [], user: null }
 
   componentDidMount() {
+    //how to make landing page 'home page'
     const token = localStorage.getItem("token")
     if(token) {
       fetch("http://localhost:3001/api/v1/profile", {
@@ -124,7 +128,7 @@ class App extends React.Component {
             />
           )}
         />
-        <Route path='/about' render={() => <Welcome />} />
+        <Route path='/about' render={() => <About />} />
         <Route
           path='/signup'
           render={() => (
@@ -139,6 +143,11 @@ class App extends React.Component {
           render={() => <LoginForm submitHandler={this.loginHandler} />}
         />
         </Switch>
+        <About/>
+        <Trips/>
+        <Parks/>
+        <Testimonials/>
+        <CreateUserForm/>
       </div>
     );
   }

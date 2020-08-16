@@ -1,6 +1,6 @@
 import React from "react";
 
-class Park extends React.Component {
+class ParkItem extends React.Component {
   render() {
     return (
       <div>
@@ -11,4 +11,4 @@ class Park extends React.Component {
     );
   }
 }
-export default Park;
+export default ParkItem;

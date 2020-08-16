@@ -74,18 +74,18 @@ class CreateUserForm extends React.Component {
 
   render() {
     return (
-      <section className="sign-up-form">
+      <section className="form">
         <div className="row">
           <h2>Sign up Here</h2>
         </div>
         <div className="row">
           <form onSubmit={this.submitHandler}>
             <div className="row">
-            <div className="col span-1-of-3">
+            <div className="col span-1-of-4">
                 <label for="first_name">First Name</label>
             </div>
 
-            <div className="col span-2-of-3">
+            <div className="col span-3-of-4">
               <input
                 type='text'
                 name='first_name'
@@ -99,11 +99,11 @@ class CreateUserForm extends React.Component {
           </div>
 
             <div className="row">
-            <div className="col span-1-of-3">
+            <div className="col span-1-of-4">
               <label for="last_name">Last Name</label>
           </div>
 
-          <div className="col span-2-of-3">
+          <div className="col span-3-of-4">
             <input
               type='text'
               name='last_name'
@@ -116,11 +116,11 @@ class CreateUserForm extends React.Component {
             </div>
             </div>
               <div className="row">
-            <div className="col span-1-of-3">
+            <div className="col span-1-of-4">
               <label for="username">Username</label>
           </div>
 
-          <div className="col span-2-of-3">
+          <div className="col span-3-of-4">
             <input
               type='text'
               name='username'
@@ -134,11 +134,11 @@ class CreateUserForm extends React.Component {
             </div>
 
             <div className="row">
-            <div className="col span-1-of-3">
+            <div className="col span-1-of-4">
               <label for="password">Password</label>
           </div>
 
-          <div className="col span-2-of-3">
+          <div className="col span-3-of-4">
             <input
               type='password'
               name='password'
@@ -150,11 +150,11 @@ class CreateUserForm extends React.Component {
           </div>
 
             <div className="row">
-            <div className="col span-1-of-3">
+            <div className="col span-1-of-4">
               <label for="bio">Tell Us About Yourself</label>
           </div>
 
-          <div className="col span-2-of-3">
+          <div className="col span-3-of-4">
             <textarea
               type='text'
               name='bio'
@@ -166,11 +166,11 @@ class CreateUserForm extends React.Component {
               </div>
 
               <div className="row">
-            <div className="col span-1-of-3">
+            <div className="col span-1-of-4">
               <label for="avatar">Upload an image</label>
           </div>
 
-          <div className="col span-2-of-3">
+          <div className="col span-3-of-4">
             <input
               type='text'
               name='avatar'
@@ -181,11 +181,11 @@ class CreateUserForm extends React.Component {
             </div>
             </div>
              <div className="row">
-                <div className="col span-1-of-3">
+                <div className="col span-1-of-4">
                     <label>&nbsp;</label>
                 </div>
-            <div className="col span-2-of-3">
-            <input className="button" type='submit'    value='Create your User Profile!' />
+            <div className="title col span-3-of-4">
+            <input className="button" type='submit' value='Create your User Profile!' />
             </div>
           </div>
           </form>

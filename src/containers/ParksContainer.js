@@ -1,10 +1,10 @@
 import React from "react";
-import Park from '../components/Park'
+import ParkItem from '../components/ParkItem'
 
 class ParksContainer extends React.Component {
 
  renderParks =  (parksObj) => {
-   return parksObj.map((park, index) => <Park key={index} park={park}/>)
+   return parksObj.map((park, index) => <ParkItem key={index} park={park}/>)
  }
 
 render() {

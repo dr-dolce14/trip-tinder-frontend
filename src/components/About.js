@@ -5,8 +5,7 @@ class Welcome extends React.Component {
     return (
       <section className="about-trinder">
       <div>
-        This is home route?
-        <p></p>
+        <h2>Welcome</h2>
       </div>
       </section>
     );
