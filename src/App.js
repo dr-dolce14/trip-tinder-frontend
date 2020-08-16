@@ -27,6 +27,7 @@ class App extends React.Component {
             this.props.history.push("/trips")
           )
         );
+        //created shortcut for front end testing//
     //} else {
       //this.props.history.push('/trips')
     }
@@ -75,8 +76,10 @@ class App extends React.Component {
   };
 
   tripsHandler = (tripsObj) => {
+    console.log(tripsObj)
     this.setState({ trips: tripsObj}, () =>
     this.props.history.push('/trips')
+    
     );
   }
 

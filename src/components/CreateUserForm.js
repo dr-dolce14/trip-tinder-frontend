@@ -1,5 +1,4 @@
 import React from "react";
-import "../resources/css/Form.css";
 
 class CreateUserForm extends React.Component {
   state = {
@@ -75,12 +74,12 @@ class CreateUserForm extends React.Component {
 
   render() {
     return (
-      <section>
+      <section className="sign-up-form">
         <div className="row">
           <h2>Sign up Here</h2>
         </div>
         <div className="row">
-          <form onSubmit={this.submitHandler} className="sign-up-form">
+          <form onSubmit={this.submitHandler}>
             <div className="row">
             <div className="col span-1-of-3">
                 <label for="first_name">First Name</label>

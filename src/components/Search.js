@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import nps from "../apis/nps";
-import "../resources/css/Form.css";
-import { Redirect } from "react-router-dom"
 
 const Search = (props) => {
   const [searchTerm, setSearchTerm] = useState('')
@@ -25,7 +23,7 @@ const Search = (props) => {
           <h3 className="title">Search for Parks!</h3>
         </div>
         <div className='row'>
-          <form className='search-form' onSubmit={onSubmit}>
+          <form className='form' onSubmit={onSubmit}>
             <div className='col span-2-of-2'>
               <input
                 type='text'

@@ -1,7 +1,6 @@
 import React from "react";
 import { Form, Input, Button, Checkbox } from 'antd';
 import { DownloadOutlined } from '@ant-design/icons';
-import '../resources/css/Form.css'
 
 const layout = {
   labelCol: {
@@ -29,7 +28,7 @@ const LoginForm = (props) => {
   };
 
   return (
-    <section>
+    <section className="login form">
     <div className="row">
     <h2>Log In</h2>
     <Form 

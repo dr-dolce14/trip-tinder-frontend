@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import "../resources/css/Form.css";
 
 const SearchTrips = (props) => {
-    const tripsUrl = "http://localhost:3001/api/v1/trips"
+    const tripsUrl = "http://localhost:3001/api/v1/trips/"
     const [searchTerm, setSearchTerm] = useState("");
 
     const onSubmit = (e) => {
@@ -11,25 +10,26 @@ const SearchTrips = (props) => {
         onTermSubmit(searchTerm)
     }
 
-    const onTermSubmit = async (searchTerm) => {
-        await fetch(tripsUrl)
+    const onTermSubmit =  async (searchTerm) => {
+        const response = await fetch(tripsUrl)
         .then(resp => resp.json())
-        .then(data => props.stateHandler(data))
+        //.then(data => props.stateHandler(data))
+        props.stateHandler(response)
     }
 
     return (
-      <section>
-
+      <section className='section-trips js--section-trips' id='trips'>
         <div className='row'>
-          <h3 className='title'>Search for Trips:</h3>
+          <h2 className='title'>Search for Trips:</h2>
         </div>
 
         <div className='row'>
-          <form className='sign-up-form' onSubmit={onSubmit}>
-
+          <form className='form' onSubmit={onSubmit}>
             <div className='title'>
               <div className='col span-1-of-4'>
-                <label for='state' className='row'>State</label>
+                <label for='state' className='row'>
+                  State
+                </label>
                 <input
                   type='radio'
                   value='state'
@@ -41,7 +41,9 @@ const SearchTrips = (props) => {
 
             <div className='title'>
               <div className='col span-1-of-4'>
-                <label for='difficulty' className='row'>Difficulty rating</label>
+                <label for='difficulty' className='row'>
+                  Difficulty rating
+                </label>
                 <input
                   type='radio'
                   value='difficulty'
@@ -53,7 +55,9 @@ const SearchTrips = (props) => {
 
             <div className='title'>
               <div className='col span-1-of-4'>
-                <label for='park' className='row'>Park</label>
+                <label for='park' className='row'>
+                  Park
+                </label>
                 <input
                   type='radio'
                   value='park'
@@ -63,9 +67,11 @@ const SearchTrips = (props) => {
               </div>
             </div>
 
-             <div className='title'>
+            <div className='title'>
               <div className='col span-1-of-4'>
-                <label for='startdate' className='row'>Start Date</label>
+                <label for='startdate' className='row'>
+                  Start Date
+                </label>
                 <input
                   type='radio'
                   value='startdate'
@@ -74,13 +80,12 @@ const SearchTrips = (props) => {
                 />
               </div>
             </div>
-            <div className="title">
-            <input className="button" type="submit" value="Search"/>
+            <div className='title'>
+              <input className='button' type='submit' value='Search' />
             </div>
           </form>
         </div>
       </section>
-
     );
 };
 export default SearchTrips;

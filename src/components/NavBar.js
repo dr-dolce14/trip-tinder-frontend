@@ -11,7 +11,7 @@ function NavBar(props) {
             <div className='main-nav js--main-nav'>
               <NavLink to='/trips/search'>Trips</NavLink>
               {/* <NavLink to='/parks'>Parks</NavLink> */}
-              <NavLink to='/parks/search'>Search Parks</NavLink>
+              <NavLink className="js--scroll-to-start" to='/parks/search'>Search Parks</NavLink>
               <NavLink to='/about'>About Trinder</NavLink>
               <NavLink to='/signup'>Sign up</NavLink>
               
