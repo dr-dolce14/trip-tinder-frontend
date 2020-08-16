@@ -28,7 +28,7 @@ class App extends React.Component {
         .then((resp) => resp.json())
         .then((data) =>
           this.setState({ user: data.user }, () =>
-            this.props.history.push("/trips")
+            this.props.history.push("/")
           )
         );
         //created shortcut for front end testing//
@@ -142,12 +142,18 @@ class App extends React.Component {
           path='/login'
           render={() => <LoginForm submitHandler={this.loginHandler} />}
         />
+        <Route
+         exact path='/' render={() => 
+         <div>
+           <About/>
+           <Trips/>
+           <Parks/>
+           <Testimonials/>
+           <CreateUserForm/>
+         </div>
+         } />
         </Switch>
-        <About/>
-        <Trips/>
-        <Parks/>
-        <Testimonials/>
-        <CreateUserForm/>
+        
       </div>
     );
   }
