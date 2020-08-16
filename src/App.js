@@ -90,64 +90,61 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <NavBar user={this.state.user} clickHandler={this.logOutHandler}/>
+        <NavBar user={this.state.user} clickHandler={this.logOutHandler} />
+        <About />
+        <Trips />
+        <Parks />
+        <Testimonials />
+        <CreateUserForm /><p></p>
         <Switch>
-        <Route 
-        path='/parks/search'
-        render={() => (
-        <Search submitHandler={this.onSearchSubmit}
-         />
-        )}
-        />
-        <Route
-          path='/trips/search'
-          render={() => ( <SearchTrips stateHandler={this.tripsHandler}/>)}
+          <Route
+            path='/parks/search'
+            render={() => <Search submitHandler={this.onSearchSubmit} />}
+          />
+          <Route
+            path='/trips/search'
+            render={() => <SearchTrips stateHandler={this.tripsHandler} />}
             //<TripsContainer
             //  user={this.state.user}
             //  appClickHandler={this.appClickHandler}
             //  trips={this.state.trips}
             //  stateHandler={this.tripsHandler}
             ///>
-          ///)}
-        />
-        <Route
-          path='/parks'
-          render={() => (
-            <ParksContainer
-              parks={this.state.parks}
-              appClickHandler={this.appClickHandler}
-            />
-          )}
-        />
-        <Route
-          path='/trips'
-          render={() => (
-            <TripsContainer
-              trips={this.state.trips}
-              appClickHandler={this.appClickHandler}
-            />
-          )}
-        />
-        <Route path='/about' render={() => <About />} />
-        <Route
-          path='/signup'
-          render={() => (
-            <CreateUserForm
-              user={this.state.user}
-              submitHandler={this.signUpHandler}
-            />
-          )}
-        />
-        <Route
-          path='/login'
-          render={() => <LoginForm submitHandler={this.loginHandler} />}
-        />
+            ///)}
+          />
+          <Route
+            path='/parks'
+            render={() => (
+              <ParksContainer
+                parks={this.state.parks}
+                appClickHandler={this.appClickHandler}
+              />
+            )}
+          />
+          <Route
+            path='/trips'
+            render={() => (
+              <TripsContainer
+                trips={this.state.trips}
+                appClickHandler={this.appClickHandler}
+              />
+            )}
+          />
+          <Route path='/about' render={() => <About />} />
+          <Route
+            path='/signup'
+            render={() => (
+              <CreateUserForm
+                user={this.state.user}
+                submitHandler={this.signUpHandler}
+              />
+            )}
+          />
+          <Route
+            path='/login'
+            render={() => <LoginForm submitHandler={this.loginHandler} />}
+          />
         </Switch>
-        <About/>
-        <Trips/>
-        <Parks/>
-        <Testimonials/>
-        <CreateUserForm/>
       </div>
     );
   }
