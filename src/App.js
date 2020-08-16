@@ -28,7 +28,7 @@ class App extends React.Component {
         .then((resp) => resp.json())
         .then((data) =>
           this.setState({ user: data.user }, () =>
-            this.props.history.push("/trips")
+            this.props.history.push("/")
           )
         );
         //created shortcut for front end testing//
@@ -110,41 +110,52 @@ class App extends React.Component {
             //  trips={this.state.trips}
             //  stateHandler={this.tripsHandler}
             ///>
-            ///)}
-          />
-          <Route
-            path='/parks'
-            render={() => (
-              <ParksContainer
-                parks={this.state.parks}
-                appClickHandler={this.appClickHandler}
-              />
-            )}
-          />
-          <Route
-            path='/trips'
-            render={() => (
-              <TripsContainer
-                trips={this.state.trips}
-                appClickHandler={this.appClickHandler}
-              />
-            )}
-          />
-          <Route path='/about' render={() => <About />} />
-          <Route
-            path='/signup'
-            render={() => (
-              <CreateUserForm
-                user={this.state.user}
-                submitHandler={this.signUpHandler}
-              />
-            )}
-          />
-          <Route
-            path='/login'
-            render={() => <LoginForm submitHandler={this.loginHandler} />}
-          />
+          ///)}
+        />
+        <Route
+          path='/parks'
+          render={() => (
+            <ParksContainer
+              parks={this.state.parks}
+              appClickHandler={this.appClickHandler}
+            />
+          )}
+        />
+        <Route
+          path='/trips'
+          render={() => (
+            <TripsContainer
+              trips={this.state.trips}
+              appClickHandler={this.appClickHandler}
+            />
+          )}
+        />
+        <Route path='/about' render={() => <About />} />
+        <Route
+          path='/signup'
+          render={() => (
+            <CreateUserForm
+              user={this.state.user}
+              submitHandler={this.signUpHandler}
+            />
+          )}
+        />
+        <Route
+          path='/login'
+          render={() => <LoginForm submitHandler={this.loginHandler} />}
+        />
+        <Route
+         exact path='/' render={() => 
+         <div>
+           <About/>
+           <Trips/>
+           <Parks/>
+           <Testimonials/>
+           <CreateUserForm/>
+         </div>
+         } />
         </Switch>
+        
       </div>
     );
   }
