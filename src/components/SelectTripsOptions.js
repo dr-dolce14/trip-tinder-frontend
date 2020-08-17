@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, withRouter } from 'react-router-dom'
 
 class SelectTripsOptions extends React.Component {
     state = {
@@ -15,6 +15,14 @@ class SelectTripsOptions extends React.Component {
     submitHandler = (e) => {
         alert("You chose: " + this.state.value)
         e.preventDefault()
+        if (this.state.value === 'createTrip') {
+            this.props.history.push('/trips/create')
+        } else if (this.state.value === 'searchTrips') {
+            this.props.history.push('/trips/search')
+        } else if (this.state.value === 'seeTrips') {
+            this.props.history.push('/trips/index')
+        }
+        
     }
 
     render() {
@@ -37,4 +45,4 @@ class SelectTripsOptions extends React.Component {
     }
 }
 
-export default SelectTripsOptions 
+export default withRouter(SelectTripsOptions) 
