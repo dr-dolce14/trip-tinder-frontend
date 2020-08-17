@@ -1,6 +1,8 @@
 import React from "react";
 import TripItem from '../components/TripItem'
 import CreateTripsForm from '../components/CreateTripsForm'
+import SelectTripsOptions from '../components/SelectTripsOptions'
+import {Route, Switch} from 'react-router-dom'
 
 class TripsContainer extends React.Component {
 
@@ -12,9 +14,12 @@ class TripsContainer extends React.Component {
   render() {
     return (
       <section>
-        <div>
-          <CreateTripsForm user={this.props.user}/>
-        </div>
+        
+        <Switch>
+          <Route path='/trips/create' render={() => <CreateTripsForm user={this.props.user}/>}/>
+          <Route path='/trips' render={() => <SelectTripsOptions />} />
+        </Switch>
+        
         <div>{this.renderTrips(this.props.trips)}</div>
       </section>
     );
