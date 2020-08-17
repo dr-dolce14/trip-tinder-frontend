@@ -210,7 +210,8 @@ header {
 /* ----- BUTTONS ----- */
 .btn:link,
 .btn:visited,
-input[type=submit] {
+input[type=submit],
+input[type=button] {
     display: inline-block;
     padding: 10px 30px;
     font-weight: 300;
@@ -223,7 +224,8 @@ input[type=submit] {
 
 .btn-full:link,
 .btn-full:visited,
-input[type=submit] {
+input[type=submit],
+input[type=button] {
     background-color: #b9e63d;
     border: 1px solid #b9e63d;
     color: #fff;
@@ -238,8 +240,10 @@ input[type=submit] {
 
 .btn:hover,
 .btn:active,
-input[type=submit]:hover,
-input[type=submit]:active {
+input[type=submit],
+input[type=button]:hover,
+input[type=submit],
+input[type=button]:active {
     background-color: #a1d11d;;
 }
 
@@ -252,6 +256,11 @@ input[type=submit]:active {
 .btn-ghost:active {
     border: 1px solid #a1d11d;
     color: #fff;
+}
+
+#inline-btn {
+    margin: 0 10px;
+    float: right;
 }
 
 /*--------------------------------------------------*/
@@ -279,9 +288,20 @@ input[type=radio] { margin: 10px 5px 10px 0; }
 *:focus { outline: none; }
 
 /*--------------------------------------------------*/
-/*ABOUT*/
+/*trips*/
 /*--------------------------------------------------*/
+.trips-container {
+    padding-top: 50px;
+    align-items: center;
 
+}
+
+.trip-card {
+    width: 80%;
+    margin: 25px auto;    
+    padding: 15px;
+    background-color: WHITE;
+}
 /*--------------------------------------------------*/
 /*parks*/
 /*--------------------------------------------------*/

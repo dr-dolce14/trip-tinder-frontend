@@ -110,6 +110,7 @@ class App extends React.Component {
               <TripsContainer
                 trips={this.state.trips}
                 fetchTrips={this.fetchTrips}
+                user={this.state.user}
               />
             )}
           />

@@ -9,7 +9,6 @@ class TripsContainer extends React.Component {
 
   componentDidMount() {
     this.fetchTrips()
-    
   }
 
   fetchTrips = async () => {
@@ -20,15 +19,15 @@ class TripsContainer extends React.Component {
         );
     };
   renderTrips = (tripsArray) => {
-    console.log(this.props.trips, this.props.user);
-    return tripsArray.map((trip) => <TripItem key={trip.id} trip={trip} />);
+    console.log(this.state.trips, this.props.user);
+    return tripsArray.map((trip) => <TripItem user={this.props.user} key={trip.id} trip={trip} />);
   };
 
   render() {
     return (
       <div className='landing'>
         <h2>All Trips</h2>
-        <div>{this.renderTrips(this.state.trips)}</div>
+        <div className="trips-container">{this.renderTrips(this.state.trips)}</div>
       </div>
     );
   }
