@@ -1,5 +1,6 @@
 import React from "react";
 
+
 class CreateTripsForm extends React.Component {
   state = {
     name: "",
@@ -9,6 +10,8 @@ class CreateTripsForm extends React.Component {
     end_date: "",
     park_id: "",
     difficulty_rating: 3,
+    parks: [],
+    selectedPark: ""
   };
 
   createTripHandler = async (tripObj) => {
@@ -40,7 +43,29 @@ class CreateTripsForm extends React.Component {
     this.createTripHandler(this.state);
   };
 
+
+  componentDidMount() {
+  fetch("http://localhost:3001/api/v1/parks")
+    .then(resp => resp.json())
+    .then(data => {
+      let parksFromApi = data.map(park => {
+        return {value: park, display: park}
+      })
+      this.setState({
+        parks: [
+          {
+            value: "",
+            display:
+            "(Select your desired Park)"
+        }
+        ].concat(parksFromApi)
+      })
+    })
+  }
+
   render() {
+
+
     return (
       <div className='row'>
         <h2>Create Your Own Trip!</h2>
@@ -81,13 +106,29 @@ class CreateTripsForm extends React.Component {
             value={this.state.end_date}
             onChange={this.changeHandler}
           />
-          <input
-            type='text'
+          
+          <select  
+          value={this.state.selectedPark}
+          onChange={e =>
+            this.setState({
+              selectedPark: e.target.value
+            })
+          }
+            >
+              {this.state.parks.map(park => (
+                <option
+                  key={park.value}
+                  value={park.name}
+                  >
+                    {park.display}
+                  </option>
+              ))}
+            {/* type='text'
             name='park_id'
-            placeholder='Name of park visited during this trip'
-            value={this.state.park_id}
-            onChange={this.changeHandler}
-          />
+            placeholder='Name of park visited during this trip' */}
+          
+           
+            </select>
 
           <input type='submit' value='Create this trip!' />
         </form>
@@ -96,3 +137,4 @@ class CreateTripsForm extends React.Component {
   }
 }
 export default CreateTripsForm;
+
