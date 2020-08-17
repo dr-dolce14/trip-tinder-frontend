@@ -3,6 +3,7 @@ import React from "react";
 import { Route, withRouter, Switch } from "react-router-dom";
 import TripsContainer from "./containers/TripsContainer";
 import ParksContainer from "./containers/ParksContainer";
+import Header from './components/Header'
 import About from "./components/About";
 import NavBar from "./components/NavBar";
 import Search from "./components/Search";
@@ -14,11 +15,11 @@ import Parks from "./components/Parks";
 import Testimonials from "./components/Testimonials";
 import './resources/css/style.css'
 
+
 class App extends React.Component {
   state = { selectedPark: '', trips: [], parks: [], user: null }
 
   componentDidMount() {
-    //how to make landing page 'home page'
     const token = localStorage.getItem("token")
     if(token) {
       fetch("http://localhost:3001/api/v1/profile", {
@@ -31,9 +32,6 @@ class App extends React.Component {
             this.props.history.push("/")
           )
         );
-        //created shortcut for front end testing//
-    //} else {
-      //this.props.history.push('/trips')
     }
   }
 
@@ -90,55 +88,44 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <NavBar user={this.state.user} clickHandler={this.logOutHandler} />
-        <About />
-        <Trips />
-        <Parks />
-        <Testimonials />
-        <CreateUserForm /><p></p>
+        <Header/>
         <Switch>
           <Route
             path='/parks/search'
+
             render={() => <Search submitHandler={this.onSearchSubmit} />}
           />
           <Route
             path='/trips/search'
             render={() => <SearchTrips stateHandler={this.tripsHandler} />}
-            //<TripsContainer
-            //  user={this.state.user}
-            //  appClickHandler={this.appClickHandler}
-            //  trips={this.state.trips}
-            //  stateHandler={this.tripsHandler}
-            ///>
-          ///)}
         />
         <Route
           path='/parks'
           render={() => (
             <ParksContainer
-              parks={this.state.parks}
-              appClickHandler={this.appClickHandler}
+            parks={this.state.parks}
+            appClickHandler={this.appClickHandler}
             />
-          )}
+            )}
         />
         <Route
           path='/trips'
           render={() => (
             <TripsContainer
-              trips={this.state.trips}
-              appClickHandler={this.appClickHandler}
+            trips={this.state.trips}
+            appClickHandler={this.appClickHandler}
             />
-          )}
+            )}
         />
         <Route path='/about' render={() => <About />} />
         <Route
           path='/signup'
           render={() => (
             <CreateUserForm
-              user={this.state.user}
-              submitHandler={this.signUpHandler}
+            user={this.state.user}
+            submitHandler={this.signUpHandler}
             />
-          )}
+            )}
         />
         <Route
           path='/login'
@@ -146,7 +133,7 @@ class App extends React.Component {
         />
         <Route
          exact path='/' render={() => 
-         <div>
+          <div>
            <About/>
            <Trips/>
            <Parks/>
@@ -155,6 +142,7 @@ class App extends React.Component {
          </div>
          } />
         </Switch>
+         <NavBar user={this.state.user} clickHandler={this.logOutHandler} />
         
       </div>
     );

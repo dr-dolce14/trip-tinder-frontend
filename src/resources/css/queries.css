@@ -24,20 +24,19 @@
         margin: 0 0 4% 0;
     }
     
-    .main-nav { display: none; }
+    .ant-anchor > div{ display: none; }
     
     .mobile-nav-icon { display: inline-block; }
     
-    .main-nav {
+    .ant-anchor-wrapper {
         float: left; 
-        margin-top: 35px;
-        margin-left: 35px;
+
     }
     
-    .main-nav { display: block; }
+    .ant-anchor > div { display: block; }
     
-    .main-nav a:link,
-    .main-nav a:visited {
+    .ant-anchor > div> a:link,
+    .ant-anchor > div> a:visited {
         display: block;
         border: 0;
         padding: 10px 0;

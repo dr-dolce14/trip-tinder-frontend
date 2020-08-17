@@ -32,10 +32,9 @@ body
 
 section { padding: 80px 0px; height: 100vh;}
 
-
 .clearfix {zoom: 1}
 .clearfix:after {
-    content: '.';
+    content: '';
     clear: both;
     display: block;
     height: 0;
@@ -85,6 +84,100 @@ h2:after {
     margin: 0 auto;
     margin-top: 30px;
 }
+
+/*HEADER*/
+/*--------------------------------------------------*/
+    
+header {
+    background-image: -o-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/yosemite.jpg);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), url(./img/yosemite.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/yosemite.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    background-attachment: fixed;
+}
+
+
+.hero-text-box {
+    position: absolute;
+    width: 1140px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+}
+
+/*MAIN NAVI*/
+/*--------------------------------------------------*/
+
+.ant-anchor-wrapper > div {
+  float: right;
+  list-style: none;
+  margin-top: 35px;
+  margin-right: 55px;
+}
+
+.ant-anchor > div {
+  display: inline-block;
+  margin-left: 40px;
+}
+
+.ant-anchor > div >  a:link,
+.ant-anchor > div >  a:visited {
+  padding: 8px 0px;
+  color: rgb(247, 246, 239);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 90%;
+  border-bottom: 2px solid transparent;
+  -webkit-transition: border-bottom 0.2s;
+  -o-transition: border-bottom 0.2s;
+  transition: border-bottom 0.2s;
+}
+
+.ant-anchor > div > a:hover,
+.ant-anchor > div > a:active {
+  border-bottom: 2px solid #b9e63d;
+}
+
+/*sticky nav*/
+/*--------------------------------------------------*/
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 2px #efefef;
+    z-index: 9999;
+}
+
+.sticky .main-nav { margin-top: 18px; }
+
+.sticky .main-nav a:link,
+.sticky .main-nav a:visited {
+    padding: 16px 0;
+    color: #555;
+}
+
+/*--------------------------------------------------*/
+/*mobile NAVI*/
+/*--------------------------------------------------*/
+
+.mobile-nav-icon {
+    float: right;
+    margin-top: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+.mobile-nav-icon i {
+    font-size: 200%;
+    color: #f7f7f7;
+}
+
 
 /*----------------------- center  -----------------------*/
 .title {
