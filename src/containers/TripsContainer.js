@@ -1,6 +1,8 @@
 import React from "react";
 import TripItem from '../components/TripItem'
 import CreateTripsForm from '../components/CreateTripsForm'
+import SelectTripsOptions from '../components/SelectTripsOptions'
+import {Route, Switch} from 'react-router-dom'
 
 class TripsContainer extends React.Component {
 
@@ -13,9 +15,19 @@ class TripsContainer extends React.Component {
     return (
       <section>
         {/*want to add options to see all trips, search trips, create trips*/}
-        <div>
-          <CreateTripsForm user={this.props.user} stateHandler={this.props.stateHandler}/>
-        </div>
+        <Switch>
+          <Route
+            path='/trips/create'
+            render={() => (
+              <CreateTripsForm
+                user={this.props.user}
+                stateHandler={this.props.stateHandler}
+              />
+            )}
+          />
+          <Route path='/trips' render={() => <SelectTripsOptions />} />
+        </Switch>
+
         <div>{this.renderTrips(this.props.trips)}</div>
       </section>
     );
