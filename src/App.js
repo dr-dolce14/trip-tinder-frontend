@@ -77,8 +77,9 @@ class App extends React.Component {
   };
 
   tripsHandler = (tripsObj) => {
-    console.log(tripsObj)
-    this.setState({ trips: tripsObj}, () =>
+    console.log(tripsObj, this.state.user)
+
+    this.setState({ trips: [...this.state.trips, tripsObj]}, () =>
     this.props.history.push('/trips')
     
     );
@@ -114,6 +115,7 @@ class App extends React.Component {
             trips={this.state.trips}
             user={this.state.user}
             appClickHandler={this.appClickHandler}
+            stateHandler={this.tripsHandler}
             />
             )}
         />

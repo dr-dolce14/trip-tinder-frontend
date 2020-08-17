@@ -12,8 +12,9 @@ class TripsContainer extends React.Component {
   render() {
     return (
       <section>
+        {/*want to add options to see all trips, search trips, create trips*/}
         <div>
-          <CreateTripsForm user={this.props.user}/>
+          <CreateTripsForm user={this.props.user} stateHandler={this.props.stateHandler}/>
         </div>
         <div>{this.renderTrips(this.props.trips)}</div>
       </section>

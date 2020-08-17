@@ -24,6 +24,7 @@ class CreateTripsForm extends React.Component {
       body: JSON.stringify({ trip: tripObj, trip_lead: this.props.user }),
     })
       .then((resp) => resp.json())
+      //how to reroute to /trips?
       .then((newTrip) => this.props.stateHandler(newTrip));
   };
 
