@@ -7,8 +7,8 @@ const Test = () => {
 
 return (
   <nav>
-    <div className='row'>
-      <div>
+      <div id="nav-container">
+
         <Anchor className='main-nav js--main-nav'>
             <Link href='#trips' title='Trips' />
             <Link href='#about-trinder' title='About Trinder' />
@@ -17,7 +17,6 @@ return (
             {" "}
             <Link href='/login' id='/login' title='Log In' />
         </Anchor>
-      </div>
     </div>
   </nav>
 );

@@ -115,8 +115,15 @@ header {
 .ant-anchor-wrapper > div {
   float: right;
   list-style: none;
-  margin-top: 35px;
+  /*margin-top: 35px;*/
   margin-right: 55px;
+  padding: 20px;
+  
+}
+.ant-anchor-wrapper {
+    
+    margin: 0px;
+    padding: 10px;
 }
 
 .ant-anchor > div {
@@ -258,6 +265,10 @@ input[type=radio] { margin: 10px 5px 10px 0; }
 /*--------------------------------------------------*/
 /*parks*/
 /*--------------------------------------------------*/
+.park-card {
+    height: 100vh;
+    margin-bottom: 55px;
+}
 
 .park-photo {
     width: 100%;

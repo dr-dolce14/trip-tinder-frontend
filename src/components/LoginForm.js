@@ -1,6 +1,5 @@
 import React from "react";
-import { Form, Input, Button, Checkbox } from 'antd';
-import { DownloadOutlined } from '@ant-design/icons';
+import { Form, Input, Checkbox } from 'antd';
 
 const layout = {
   labelCol: {
@@ -72,14 +71,13 @@ const LoginForm = (props) => {
           </Form.Item>
 
           <Form.Item {...tailLayout}>
-            <Button
-              type='primary'
-              shape='round'
-              icon={<DownloadOutlined />}
-              htmlType='submit'
-            >
-              Submit
-            </Button>
+            <div className='title'>
+              <input
+                className='btn-full'
+                type='submit'
+                value='Log In'
+                />
+            </div>
           </Form.Item>
         </Form>
       </div>
