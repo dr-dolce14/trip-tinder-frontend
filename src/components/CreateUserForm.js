@@ -30,7 +30,7 @@ class CreateUserForm extends React.Component {
       switch (name) {
           case 'first_name':
               errors.first_name =
-              value.length < 4
+              value.length < 2
               ? 'First Name must be at least 4 characters long!'
               : '';
               break;
@@ -56,6 +56,7 @@ class CreateUserForm extends React.Component {
 
   submitHandler = (e) => {
     e.preventDefault();
+    console.log(this.props)
     if(this.validateForm(this.state.errors)) {
         console.info('Valid Form')
     } else {

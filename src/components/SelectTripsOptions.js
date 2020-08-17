@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, withRouter } from 'react-router-dom'
+import TripItem from './TripItem'
 
 class SelectTripsOptions extends React.Component {
     state = {
@@ -26,7 +27,6 @@ class SelectTripsOptions extends React.Component {
     }
 
     render() {
-
         return(
             <div>
                 <form onSubmit={this.submitHandler}>
