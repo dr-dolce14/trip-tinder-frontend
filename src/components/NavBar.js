@@ -6,7 +6,8 @@ function NavBar(props) {
         <nav>
           <div>
             <div className='main-nav js--main-nav'>
-              <NavLink to='/trips/search'>Trips</NavLink>
+              <NavLink to='/trips/search'>Search trips</NavLink>
+              <NavLink to='/trips'>Create Trip</NavLink>
               {/* <NavLink to='/parks'>Parks</NavLink> */}
               <NavLink to='/about'>About Trinder</NavLink>
               <NavLink to='/parks/search'>Search Parks</NavLink>

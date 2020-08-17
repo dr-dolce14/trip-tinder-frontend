@@ -32,8 +32,8 @@ class App extends React.Component {
           )
         );
     }
+    console.log(this.state.user)
   }
-
   signUpHandler = (userObj) => {
     console.log(userObj)
     fetch("http://localhost:3001/api/v1/users", {
@@ -112,6 +112,7 @@ class App extends React.Component {
           render={() => (
             <TripsContainer
             trips={this.state.trips}
+            user={this.state.user}
             appClickHandler={this.appClickHandler}
             />
             )}

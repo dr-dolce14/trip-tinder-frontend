@@ -12,6 +12,7 @@ class CreateTripsForm extends React.Component {
   };
 
   createTripHandler = async (tripObj) => {
+    console.log(this.props.user)
     let auth_token = this.props.user.jwt;
     await fetch("http://localhost:3001/api/v1/trips", {
       method: "POST",
