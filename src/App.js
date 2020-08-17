@@ -15,7 +15,6 @@ import Parks from "./components/Parks";
 import Testimonials from "./components/Testimonials";
 import './resources/css/style.css'
 
-
 class App extends React.Component {
   state = { selectedPark: '', trips: [], parks: [], user: null }
 

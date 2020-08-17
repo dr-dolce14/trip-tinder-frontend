@@ -9,7 +9,7 @@ return (
   <nav>
     <div className='row'>
       <div>
-        <Anchor >
+        <Anchor className='main-nav js--main-nav'>
             <Link href='#trips' title='Trips' />
             <Link href='#about-trinder' title='About Trinder' />
             <Link href='#search-parks' title='Search Parks' />

@@ -82,7 +82,7 @@ class CreateUserForm extends React.Component {
           <form onSubmit={this.submitHandler}>
             <div className="row">
             <div className="col span-1-of-4">
-                <label for="first_name">First Name</label>
+                <label htmlFor="first_name">First Name</label>
             </div>
 
             <div className="col span-3-of-4">
@@ -100,7 +100,7 @@ class CreateUserForm extends React.Component {
 
             <div className="row">
             <div className="col span-1-of-4">
-              <label for="last_name">Last Name</label>
+              <label htmlFor="last_name">Last Name</label>
           </div>
 
           <div className="col span-3-of-4">
@@ -117,7 +117,7 @@ class CreateUserForm extends React.Component {
             </div>
               <div className="row">
             <div className="col span-1-of-4">
-              <label for="username">Username</label>
+              <label htmlFor="username">Username</label>
           </div>
 
           <div className="col span-3-of-4">
@@ -135,7 +135,7 @@ class CreateUserForm extends React.Component {
 
             <div className="row">
             <div className="col span-1-of-4">
-              <label for="password">Password</label>
+              <label htmlFor="password">Password</label>
           </div>
 
           <div className="col span-3-of-4">
@@ -151,7 +151,7 @@ class CreateUserForm extends React.Component {
 
             <div className="row">
             <div className="col span-1-of-4">
-              <label for="bio">Tell Us About Yourself</label>
+              <label htmlFor="bio">Tell Us About Yourself</label>
           </div>
 
           <div className="col span-3-of-4">
@@ -167,7 +167,7 @@ class CreateUserForm extends React.Component {
 
               <div className="row">
             <div className="col span-1-of-4">
-              <label for="avatar">Upload an image</label>
+              <label htmlFor="avatar">Upload an image</label>
           </div>
 
           <div className="col span-3-of-4">

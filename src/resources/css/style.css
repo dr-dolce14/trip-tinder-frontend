@@ -255,8 +255,27 @@ input[type=radio] { margin: 10px 5px 10px 0; }
 
 *:focus { outline: none; }
 
+/*--------------------------------------------------*/
+/*parks*/
+/*--------------------------------------------------*/
 
+.park-photo {
+    width: 100%;
+    overflow: hidden;
+}
 
+.park-photo img {
+    width: 100%;
+    height: auto;
+}
+.title > a{
+    text-decoration: none;
+    color: #555;
+}
+.title > a:hover{
+    text-decoration: none;
+    color: #a1d11d;
+}
 /*--------------------------------------------------*/
 /*animations*/
 /*--------------------------------------------------*/
