@@ -9,7 +9,6 @@ function NavBar(props) {
               <NavLink to='/trips'>Trips</NavLink>
               <NavLink to='/trips/search'>Search trips</NavLink>
               <NavLink to='/trips/create'>Create Trip</NavLink>
-              {/* <NavLink to='/parks'>Parks</NavLink> */}
               <NavLink to='/about'>About Trinder</NavLink>
               <NavLink to='/parks/search'>Search Parks</NavLink>
               <NavLink to='/signup'>Sign up</NavLink>

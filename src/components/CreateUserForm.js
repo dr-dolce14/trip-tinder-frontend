@@ -75,7 +75,7 @@ class CreateUserForm extends React.Component {
 
   render() {
     return (
-      <section className="form" id="sign-up">
+      <section className="form landing" id="sign-up">
         <div className="row">
           <h2>Sign up Here</h2>
         </div>

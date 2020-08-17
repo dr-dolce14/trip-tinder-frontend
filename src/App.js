@@ -90,7 +90,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header loginHandler={this.loginHandler}/>
         <Switch>
           <Route
             path='/parks/search'
@@ -147,7 +147,7 @@ class App extends React.Component {
                 <Trips />
                 <Parks />
                 <Testimonials />
-                {/* /*<CreateUserForm />*/}
+                <CreateUserForm />
               </div>
             )}
           />

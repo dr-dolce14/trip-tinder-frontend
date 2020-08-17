@@ -1,22 +1,28 @@
-import { Anchor } from "antd";
 import React from 'react'
+import { HashLink as Link } from "react-router-hash-link";
+import { NavLink } from "react-router-dom";
 
-const { Link } = Anchor;
 
-const Test = () => {
+const Test = (props) => {
 
 return (
   <nav>
-      <div id="nav-container">
-
-        <Anchor className='main-nav js--main-nav'>
-            <Link href='#trips' title='Trips' />
-            <Link href='#about-trinder' title='About Trinder' />
-            <Link href='#search-parks' title='Search Parks' />
-            <Link href='#sign-up' title='Sign Up' />
-            {" "}
-            <Link href='/login' id='/login' title='Log In' />
-        </Anchor>
+    {console.log(props)}
+    <div className='row'>
+      <ul className='main-nav js--main-nav'>
+        <Link to='#trips'>Trips</Link>
+        <Link to='#about-trinder'>About Trinder</Link>
+        <Link to='#parks'>Participating Parks</Link>
+        <Link to='#sign-up'>Sign Up</Link>
+        {props.user ? (
+          <NavLink to='/login'>Log out</NavLink>
+        ) : (
+          <NavLink to='/login'>Log In</NavLink>
+        )}
+        {/* <a class='mobile-nav-icon'>
+          <ion-icon name='menu-outline'></ion-icon>
+        </a> */}
+      </ul>
     </div>
   </nav>
 );

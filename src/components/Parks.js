@@ -2,7 +2,7 @@ import React from 'react'
 
 const Parks = () => {
   return(
-    <section id="search-parks">
+    <section className="landing" id="parks">
     <div>
       <h2>Landing Page Park Examples</h2>
       </div>

@@ -3,9 +3,9 @@ $(document).ready(function () {
   $(".js--section-about").waypoint(
     function (direction) {
       if (direction == "down") {
-        $(".ant-anchor").addClass("sticky");
+        $("nav").addClass("sticky");
       } else {
-        $(".ant-anchor").removeClass("sticky");
+        $("nav").removeClass("sticky");
       }
     },
     {

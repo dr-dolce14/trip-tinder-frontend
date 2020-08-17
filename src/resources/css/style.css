@@ -85,6 +85,10 @@ h2:after {
     margin-top: 30px;
 }
 
+.landing {
+    padding-top: 100px;
+}
+
 /*HEADER*/
 /*--------------------------------------------------*/
     
@@ -109,32 +113,27 @@ header {
             transform: translate(-50%, -50%);
 }
 
+/*--------------------------------------------------*/
 /*MAIN NAVI*/
 /*--------------------------------------------------*/
 
-.ant-anchor-wrapper > div {
+.main-nav {
   float: right;
   list-style: none;
-  /*margin-top: 35px;*/
-  margin-right: 55px;
-  padding: 20px;
-  
-}
-.ant-anchor-wrapper {
-    
-    margin: 0px;
-    padding: 10px;
+  margin-top: 55px;
+  position: fixed;
+  right: 55px;
 }
 
-.ant-anchor > div {
+.main-nav a {
   display: inline-block;
   margin-left: 40px;
 }
 
-.ant-anchor > div >  a:link,
-.ant-anchor > div >  a:visited {
+.main-nav  a:link,
+.main-nav  a:visited {
   padding: 8px 0px;
-  color: rgb(247, 246, 239);
+  color: #af9e92;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 90%;
@@ -144,10 +143,27 @@ header {
   transition: border-bottom 0.2s;
 }
 
-.ant-anchor > div > a:hover,
-.ant-anchor > div > a:active {
+.main-nav a:hover,
+.main-nav a:active {
   border-bottom: 2px solid #b9e63d;
 }
+
+/*--------------------------------------------------*/
+/*mobile NAVI*/
+/*--------------------------------------------------*/
+
+.mobile-nav-icon {
+    float: right;
+    margin-top: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+.mobile-nav-icon i {
+    font-size: 200%;
+    color: #f7f7f7;
+}
+
 
 /*sticky nav*/
 /*--------------------------------------------------*/
@@ -261,6 +277,10 @@ textarea { height: 100px; }
 input[type=radio] { margin: 10px 5px 10px 0; }
 
 *:focus { outline: none; }
+
+/*--------------------------------------------------*/
+/*ABOUT*/
+/*--------------------------------------------------*/
 
 /*--------------------------------------------------*/
 /*parks*/
