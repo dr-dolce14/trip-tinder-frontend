@@ -14,8 +14,7 @@ class TripsLandingPage extends React.Component {
   
   render() {
     return (
-      <section>
-        {/*want to add options to see all trips, search trips, create trips*/}
+      <section className="landing">
         <Switch>
           <Route
             path='/trips/create'

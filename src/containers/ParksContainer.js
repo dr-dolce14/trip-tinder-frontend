@@ -9,7 +9,7 @@ class ParksContainer extends React.Component {
 
 render() {
   return (
-    <section className='section-parks js--section-parks' id='parks'>
+    <section className='section-parks' id='parks'>
       <div>
         <h2>Parks:</h2>
       </div>

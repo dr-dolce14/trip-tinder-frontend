@@ -99,7 +99,7 @@ class CreateUserForm extends React.Component {
             </div>
           </div>
 
-            <div className="row">
+          <div className="row">
             <div className="col span-1-of-4">
               <label htmlFor="last_name">Last Name</label>
           </div>

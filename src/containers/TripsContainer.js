@@ -25,7 +25,12 @@ class TripsContainer extends React.Component {
   };
 
   render() {
-    return <div>{this.renderTrips(this.state.trips)}</div>
+    return (
+      <div className='landing'>
+        <h2>All Trips</h2>
+        <div>{this.renderTrips(this.state.trips)}</div>
+      </div>
+    );
   }
 }
 
