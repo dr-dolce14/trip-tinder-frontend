@@ -14,6 +14,7 @@ import CreateUserForm from "./components/CreateUserForm";
 import Trips from "./components/Trips";
 import Parks from "./components/Parks";
 import Testimonials from "./components/Testimonials";
+import SelectTripsOptions from './components/SelectTripsOptions'
 
 class App extends React.Component {
   state = { selectedPark: '', trips: [], parks: [], user: null, trip: {} }
@@ -46,7 +47,7 @@ class App extends React.Component {
       body: JSON.stringify({user: userObj})
     })
       .then(resp => resp.json())
-      .then(userObj =>this.setState({user: userObj.user}, () => this.props.history.push('/trips')))
+      .then(userObj =>this.setState({user: userObj.user}, () => this.props.history.push('/trips/landing')))
   }
 
   loginHandler = (userInfo) => {
@@ -61,7 +62,7 @@ class App extends React.Component {
       .then((resp) => resp.json())
       .then(userInfo => {
         localStorage.setItem("token", userInfo.jwt)
-        this.setState({user: userInfo.user}, () => this.props.history.push('/trips'));
+        this.setState({user: userInfo.user}, () => this.props.history.push('/trips/landing'));
   })
   }
 
@@ -82,15 +83,15 @@ class App extends React.Component {
   tripsHandler = (tripsObj) => {
     console.log(tripsObj, this.state.user)
     this.setState({ trips: [...this.state.trips, tripsObj]}, () =>
-    this.props.history.push('/trips/index')
+    this.props.history.push('/trips')
     );
   }
 
-  // tripShowClickHandler = (tripObj) => {
-  //   this.setState({
-  //     trip: tripObj
-  //   })
-  // }
+  tripShowClickHandler = (tripObj) => {
+    this.setState({
+      trip: tripObj
+    })
+  }
 
 
   render() {
@@ -111,18 +112,18 @@ class App extends React.Component {
             render={() => <ParksContainer parks={this.state.parks} />}
           />
           <Route
-            path='/trips/index'
+            path='/trips'
             render={() => (
               <TripsContainer
                 trips={this.state.trips}
                 fetchTrips={this.fetchTrips}
                 user={this.state.user}
-                // tripShowClickHandler={this.tripShowClickHandler}
+                tripShowClickHandler={this.tripShowClickHandler}
               />
             )}
           />
           <Route
-            path='/trips'
+            path='/trips/landing'
             render={() => (
               <TripsLandingPage
                 trips={this.state.trips}
@@ -146,6 +147,10 @@ class App extends React.Component {
           <Route
             path='/login'
             render={() => <LoginForm submitHandler={this.loginHandler} />}
+          />
+          <Route 
+          path='/trip/choose' 
+          render={() => <SelectTripsOptions />} 
           />
           <Route
             exact

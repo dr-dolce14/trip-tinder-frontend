@@ -25,22 +25,22 @@ class TripsContainer extends React.Component {
 
   render() {
     return (
-      // <>
-      //     {this.state.trips.length === 0 ? <h1>Loading</h1> : 
-      //     <>
-      // <Switch>
-      //     {/* this 'match' object is part of the router props */}
-      //     <Route path='/trips/:id' render={({match}) => {
-      //         let id = parseInt(match.params.id)
-      //         let foundTrip = this.state.trips.find((trip) => trip.id === id)
-      //         // console.log("Found Trip: ", trip)
-      //         return <TripItem trip={foundTrip} tripShowClickHandler={this.props.tripShowClickHandler}      />
+      <>
+          {this.state.trips.length === 0 ? <h1>Loading</h1> : 
+          <>
+      <Switch>
+          {/* this 'match' object is part of the router props */}
+          <Route path= '/trips/:id' render={({match}) => {
+              let id = parseInt(match.params.id)
+              let foundTrip = this.state.trips.find((trip) => trip.id === id)
+              console.log(match)
+              return <TripItem trip={foundTrip} tripShowClickHandler={this.props.tripShowClickHandler} id={this.state.id}      />
 
        
-      // }} />
-      //     <Route path='/trips' render={() => {
+      }} />
+          <Route path='/trips' render={() => {
                  
-      //         return (
+              return (
                
                  <div className='landing'>
                   <h2>All Trips</h2>
@@ -49,16 +49,17 @@ class TripsContainer extends React.Component {
                  </div>
                   </div>
                   );
-// }}/>
+}}/>
 
-//               )
+              )
               
-//        </Switch>
-//        </>
-//       }
-//       </>
-//   )
-// }
-    }
+       </Switch>
+       </>
+      }
+      </>
+  )
 }
+    }
+  
+
 export default TripsContainer;
