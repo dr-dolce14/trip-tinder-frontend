@@ -1,6 +1,6 @@
 import React from "react";
 import TripItem from "../components/TripItem";
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom'
 
 class TripsContainer extends React.Component {
   state = { trips: [] };
@@ -62,4 +62,4 @@ class TripsContainer extends React.Component {
     }
   
 
-export default TripsContainer;
+export default withRouter(TripsContainer);
