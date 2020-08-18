@@ -45,23 +45,19 @@ class CreateTripsForm extends React.Component {
 
 
   componentDidMount() {
-  fetch("http://localhost:3001/api/v1/parks")
-    .then(resp => resp.json())
-    .then(data => {
-      let parksFromApi = data.map(park => {
-        return {value: park, display: park}
-      })
-      this.setState({
-        parks: [
-          {
-            value: "",
-            display:
-            "(Select your desired Park)"
-        }
-        ].concat(parksFromApi)
-      })
-    })
-  }
+    let initialParks = []
+    fetch("http://localhost:3001/api/v1/parks")
+      .then(resp => resp.json())
+      .then(data => {
+        initialParks = data.map((park) => {
+          return park
+        })
+        console.log(initialParks)
+        this.setState({
+          parks: initialParks
+        })
+      }
+      )}
 
   render() {
 
@@ -109,6 +105,7 @@ class CreateTripsForm extends React.Component {
           
           <select  
           value={this.state.selectedPark}
+          name='park_id'
           onChange={e =>
             this.setState({
               selectedPark: e.target.value
@@ -117,10 +114,10 @@ class CreateTripsForm extends React.Component {
             >
               {this.state.parks.map(park => (
                 <option
-                  key={park.value}
+                  key={park.id}
                   value={park.name}
                   >
-                    {park.display}
+                    {park.name}
                   </option>
               ))}
             {/* type='text'
