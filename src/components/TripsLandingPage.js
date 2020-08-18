@@ -25,8 +25,8 @@ class TripsLandingPage extends React.Component {
               />
             )}
           />
-          <Route path='/trips' render={() => <SelectTripsOptions />} />
-          <Route path='/trips/index' render={() => <TripsContainer/>}/>
+          
+          <Route path='/trips' render={() => <TripsContainer/>}/>
         </Switch>
 
 
