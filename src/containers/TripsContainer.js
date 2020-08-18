@@ -1,5 +1,6 @@
 import React from "react";
 import TripItem from "../components/TripItem";
+import { Route, Switch } from 'react-router-dom'
 
 class TripsContainer extends React.Component {
   state = { trips: [] };
@@ -18,20 +19,46 @@ class TripsContainer extends React.Component {
   renderTrips = (tripsArray) => {
     console.log(this.state.trips, this.props.user);
     return tripsArray.map((trip) => (
-      <TripItem user={this.props.user} key={trip.id} trip={trip} />
+      <TripItem user={this.props.user} key={trip.id} trip={trip} tripShowClickHandler={this.props.tripShowClickHandler} />
     ));
   };
 
   render() {
     return (
-      <div className='landing'>
-        <h2>All Trips</h2>
-        <div className='trips-container'>
-          {this.renderTrips(this.state.trips)}
-        </div>
-      </div>
-    );
-  }
-}
+      // <>
+      //     {this.state.trips.length === 0 ? <h1>Loading</h1> : 
+      //     <>
+      // <Switch>
+      //     {/* this 'match' object is part of the router props */}
+      //     <Route path='/trips/:id' render={({match}) => {
+      //         let id = parseInt(match.params.id)
+      //         let foundTrip = this.state.trips.find((trip) => trip.id === id)
+      //         // console.log("Found Trip: ", trip)
+      //         return <TripItem trip={foundTrip} tripShowClickHandler={this.props.tripShowClickHandler}      />
 
+       
+      // }} />
+      //     <Route path='/trips' render={() => {
+                 
+      //         return (
+               
+                 <div className='landing'>
+                  <h2>All Trips</h2>
+                  <div className='trips-container'>
+                 {this.renderTrips(this.state.trips)}
+                 </div>
+                  </div>
+                  );
+// }}/>
+
+//               )
+              
+//        </Switch>
+//        </>
+//       }
+//       </>
+//   )
+// }
+    }
+}
 export default TripsContainer;

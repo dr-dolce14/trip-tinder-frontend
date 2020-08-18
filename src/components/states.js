@@ -50,3 +50,5 @@ const states = [
   {state: 'District of Columbia', abbr:	'DC'},
   {state: 'Marshall Islands', abbr:	'MH'}
 ]
+
+export default states

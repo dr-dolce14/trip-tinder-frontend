@@ -88,9 +88,6 @@ h2:after {
 .landing {
     padding-top: 100px;
 }
-span, .divider.text {
-    visibility: hidden;
-}
 
 /*HEADER*/
 /*--------------------------------------------------*/
@@ -309,22 +306,21 @@ input[type=radio] { margin: 10px 5px 10px 0; }
 /*--------------------------------------------------*/
 .park-card {
     height: 100vh;
-    margin: 55px 0px;;
+    margin: 55px 0px;
     background-color: white;
     align-items: center;
-    
 }
 
 .park-photo {
     width: 70%;
-    overflow: hidden;
-    margin: auto;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
 }
 
 .park-photo img {
-    width: 70%;
-    height: auto;
-    margin: auto;
+    width: 20%;
+    margin: 55px 0px;
     background-color: white;
 }
 .title > a{

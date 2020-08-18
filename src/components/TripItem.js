@@ -1,6 +1,8 @@
 import React from "react";
+import { NavLink } from 'react-router-dom'
 
 const TripItem = (props) => {
+
 
   const joinTripHandler = async () => {
     console.log('hi')
@@ -17,14 +19,19 @@ const TripItem = (props) => {
   
 }
 
+// const tripShowClickHandler = () => {
+//   props.tripShowClickHandler(props.trip)
+// }
+
   return (
     <div className='trip-card'>
       <div className='row'>
         <div className='col span-1-of-3'>
           <h3>Trip Name:</h3>
         </div>
-
-        <div className='col span-2-of-3'>{props.trip.name}</div>
+        <NavLink to={`/trips/${props.trip.id}`}>
+        <div className='col span-2-of-3' onClick={this.tripShowClickHandler}>{props.trip.name}</div>
+        </NavLink>
       </div>
 
       <div className='row'>

@@ -57,20 +57,18 @@ class CreateTripsForm extends React.Component {
   componentDidMount() {
     let initialParks = []
     fetch("http://localhost:3001/api/v1/parks")
-      .then(resp => resp.json())
-      .then(data => {
-        initialParks = data.map(park => {
-          return park
-        })
-        this.setState({
-          parks: initialParks
-        })
+    .then(resp => resp.json())
+    .then(data => {
+      initialParks = data.map(park => {
+        return park
       })
+      this.setState({
+        parks: initialParks
+      })
+    })
   }
 
   render() {
-
-
     return (
       <div className='row'>
         <h2>Create Your Own Trip!</h2>
@@ -113,7 +111,6 @@ class CreateTripsForm extends React.Component {
           />
           
           <select  
-          value={this.state.selectedPark}
           name='park_id'
           onChange={e =>
             this.setState({
@@ -124,20 +121,11 @@ class CreateTripsForm extends React.Component {
               {this.state.parks.map(park => {return(
                 <option
                   key={park.id}
-<<<<<<< HEAD
                   value={park.id}
-=======
-                  value={park.name}
->>>>>>> 6fe0a80a5b2977fa32bbd959159ca620b0312d8a
-                  >
-                    {park.name}
-                  </option>
+                 >
+                   {park.name}
+                </option>
               )})}
-            {/* type='text'
-            name='park_id'
-            placeholder='Name of park visited during this trip' */}
-          
-           
             </select>
 
           <input type='submit' value='Create this trip!' />

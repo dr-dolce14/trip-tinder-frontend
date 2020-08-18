@@ -28,8 +28,8 @@ class SelectTripsOptions extends React.Component {
 
     render() {
         return(
-            <div className="landing">
-                <form onSubmit={this.submitHandler}>
+            <div className="landing form">
+                <form className="title" onSubmit={this.submitHandler}>
                     <label>
                         Select
                         <select value={this.state.value} onChange={this.changeHandler}>

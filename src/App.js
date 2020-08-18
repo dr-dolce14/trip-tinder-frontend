@@ -16,7 +16,7 @@ import Parks from "./components/Parks";
 import Testimonials from "./components/Testimonials";
 
 class App extends React.Component {
-  state = { selectedPark: '', trips: [], parks: [], user: null }
+  state = { selectedPark: '', trips: [], parks: [], user: null, trip: {} }
 
   componentDidMount() {
     const token = localStorage.getItem("token")
@@ -85,6 +85,11 @@ class App extends React.Component {
     );
   }
 
+  // tripShowClickHandler = (tripObj) => {
+  //   this.setState({
+  //     trip: tripObj
+  //   })
+  // }
 
 
   render() {
@@ -111,6 +116,7 @@ class App extends React.Component {
                 trips={this.state.trips}
                 fetchTrips={this.fetchTrips}
                 user={this.state.user}
+                // tripShowClickHandler={this.tripShowClickHandler}
               />
             )}
           />
@@ -122,6 +128,7 @@ class App extends React.Component {
                 user={this.state.user}
                 stateHandler={this.tripsHandler}
                 fetchTrips={this.fetchTrips}
+                
               />
             )}
           />
