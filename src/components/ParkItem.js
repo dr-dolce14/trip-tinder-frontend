@@ -33,21 +33,26 @@ class ParkItem extends React.Component {
   render() {
     //on hover would like to display park stats, save park
     return (
-      <div className="park-card" onClick={() => this.addParkHandler()}>
+      <div className='park-card' onClick={() => this.addParkHandler()}>
         <h2>{this.props.park.fullName}</h2>
         <h3 className='title'>
-          <a id="link" href={this.props.park.url}>Website</a>:
+          <a id='link' href={this.props.park.url}>
+            Website
+          </a>
+          :
         </h3>
-        <figure class='park-photo'>
-          <img
-            alt=''
-            src={
-              this.props.park.images[0]
-                ? this.props.park.images[0].url
-                : "no image"
-            }
-          />
-        </figure>
+        <div class="park-photo-frame">
+          <div class='park-photo'>
+            <img
+              alt=''
+              src={
+                this.props.park.images[0]
+                  ? this.props.park.images[0].url
+                  : "no image"
+              }
+            />
+          </div>
+        </div>
       </div>
     );
   }

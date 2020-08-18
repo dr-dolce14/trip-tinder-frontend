@@ -297,8 +297,7 @@ input[type=radio] { margin: 10px 5px 10px 0; }
 
 .trip-card {
     width: 80%;
-    margin: 25px auto;    
-    padding: 15px;
+    padding: 25px 0;    
     background-color: WHITE;
 }
 /*--------------------------------------------------*/
@@ -306,23 +305,27 @@ input[type=radio] { margin: 10px 5px 10px 0; }
 /*--------------------------------------------------*/
 .park-card {
     height: 100vh;
-    margin: 55px 0px;
     background-color: white;
-    align-items: center;
+    margin: 20px 0px;
+    padding-top: 40px;
 }
 
+.park-photo-frame {
+    height: 70vh;
+    margin: 0px 20px;
+    overflow: hidden;
+}
 .park-photo {
-    width: 70%;
-    margin: 0;
-    align-items: center;
     justify-content: center;
+    padding: 0% 5%;
+    margin-top: 20px;
 }
 
 .park-photo img {
-    width: 20%;
-    margin: 55px 0px;
-    background-color: white;
+    height: 100%;
+    width: 100%;
 }
+
 .title > a{
     text-decoration: none;
     color: #555;
