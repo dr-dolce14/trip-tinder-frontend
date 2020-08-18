@@ -11,7 +11,6 @@ class CreateTripsForm extends React.Component {
     park_id: "",
     difficulty_rating: 3,
     parks: [],
-    selectedPark: ""
   };
 
   createTripHandler = async (tripObj) => {
@@ -34,33 +33,39 @@ class CreateTripsForm extends React.Component {
   changeHandler = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
-    });
+    })
+    console.log(e.target.value);
   };
 
   submitHandler = (e) => {
     console.log(this.props, this.state);
     e.preventDefault();
+    const newTrip = {
+      name: this.state.name,
+      state: this.state.state,
+      description: this.state.description,
+      start_date: this.state.start_date,
+      end_date: this.state.end_date,
+      park_id: this.state.park_id,
+      difficulty_rating: this.state.difficulty_rating,
+    }
+    console.log(newTrip)
     this.createTripHandler(this.state);
   };
 
 
   componentDidMount() {
-  fetch("http://localhost:3001/api/v1/parks")
-    .then(resp => resp.json())
-    .then(data => {
-      let parksFromApi = data.map(park => {
-        return {value: park, display: park}
+    let initialParks = []
+    fetch("http://localhost:3001/api/v1/parks")
+      .then(resp => resp.json())
+      .then(data => {
+        initialParks = data.map(park => {
+          return park
+        })
+        this.setState({
+          parks: initialParks
+        })
       })
-      this.setState({
-        parks: [
-          {
-            value: "",
-            display:
-            "(Select your desired Park)"
-        }
-        ].concat(parksFromApi)
-      })
-    })
   }
 
   render() {
@@ -111,18 +116,18 @@ class CreateTripsForm extends React.Component {
           value={this.state.selectedPark}
           onChange={e =>
             this.setState({
-              selectedPark: e.target.value
-            })
+              park_id: e.target.value
+            }, console.log(e.target.value))
           }
             >
-              {this.state.parks.map(park => (
+              {this.state.parks.map(park => {return(
                 <option
-                  key={park.value}
-                  value={park.name}
+                  key={park.id}
+                  value={park.id}
                   >
-                    {park.display}
+                    {park.name}
                   </option>
-              ))}
+              )})}
             {/* type='text'
             name='park_id'
             placeholder='Name of park visited during this trip' */}

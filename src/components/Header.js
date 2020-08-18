@@ -1,10 +1,12 @@
 import React from 'react' 
 import Test from "./NavBarTest";
+import NavBar from './NavBar'
 
 const Header = (props) => {
   return(
   <header>
-    <Test/>
+    <NavBar/>
+    {/* <Test/> */}
     <div className='row'>
       <div className='hero-text-box'>
         <h1>

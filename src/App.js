@@ -14,7 +14,6 @@ import CreateUserForm from "./components/CreateUserForm";
 import Trips from "./components/Trips";
 import Parks from "./components/Parks";
 import Testimonials from "./components/Testimonials";
-import './resources/css/style.css'
 
 class App extends React.Component {
   state = { selectedPark: '', trips: [], parks: [], user: null }
@@ -35,6 +34,7 @@ class App extends React.Component {
     }
     console.log(this.state.user)
   }
+  
   signUpHandler = (userObj) => {
     console.log(userObj)
     fetch("http://localhost:3001/api/v1/users", {

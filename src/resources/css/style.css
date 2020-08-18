@@ -88,6 +88,9 @@ h2:after {
 .landing {
     padding-top: 100px;
 }
+span, .divider.text {
+    visibility: hidden;
+}
 
 /*HEADER*/
 /*--------------------------------------------------*/
@@ -293,7 +296,6 @@ input[type=radio] { margin: 10px 5px 10px 0; }
 .trips-container {
     padding-top: 50px;
     align-items: center;
-
 }
 
 .trip-card {
@@ -307,17 +309,23 @@ input[type=radio] { margin: 10px 5px 10px 0; }
 /*--------------------------------------------------*/
 .park-card {
     height: 100vh;
-    margin-bottom: 55px;
+    margin: 55px 0px;;
+    background-color: white;
+    align-items: center;
+    
 }
 
 .park-photo {
-    width: 100%;
+    width: 70%;
     overflow: hidden;
+    margin: auto;
 }
 
 .park-photo img {
-    width: 100%;
+    width: 70%;
     height: auto;
+    margin: auto;
+    background-color: white;
 }
 .title > a{
     text-decoration: none;

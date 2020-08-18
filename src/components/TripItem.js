@@ -1,9 +1,10 @@
 import React from "react";
 
 const TripItem = (props) => {
-  const joinTripHandler = () => {
-    console.log(props)
-    fetch(`http://localhost:3001/api/v1/trips/${props.trip.id}`, {
+
+  const joinTripHandler = async () => {
+    console.log('hi')
+    await fetch(`http://localhost:3001/api/v1/trips/${props.trip.id}`, {
       method: 'PATCH', 
       headers: {
         'accepts': 'application/json',
@@ -11,9 +12,11 @@ const TripItem = (props) => {
       },
       body: JSON.stringify({username: props.user.username, trip_id: props.trip.id})
     })
-    .then(resp=> resp.json())
-    .then(data=> console.log(data))
-  }
+    .then(resp=> console.log(resp.json()))
+    .then()
+  
+}
+
   return (
     <div className='trip-card'>
       <div className='row'>
@@ -41,7 +44,7 @@ const TripItem = (props) => {
       </div>
       <div className="row">
         <input id="inline-btn" type="button" onClick={()=> console.log(props.trip)} className='btn btn-full' value="Save Trip"/>
-        <input id="inline-btn" type="button" onClick={()=> joinTripHandler()} className='btn btn-full' value="Join Trip"/>
+        <input id="inline-btn" type="button" onClick={joinTripHandler} className='btn btn-full' value="Join Trip"/>
       </div>
     </div>
   );
