@@ -324,6 +324,14 @@ input[type=radio] { margin: 10px 5px 10px 0; }
 .park-photo img {
     height: 100%;
     width: 100%;
+    opacity: 1;
+    transition: opacity 0.5s, -webkit-transform 0.5s;
+    -o-transition: transform 0.5s, opacity 0.5s;
+    transition: transform 0.5s, opacity 0.5s;
+    transition: transform 0.5s, opacity 0.5s;
+}
+.park-photo img:hover {
+    opacity: .5;
 }
 
 .title > a{

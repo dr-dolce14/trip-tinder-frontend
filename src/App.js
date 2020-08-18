@@ -73,7 +73,8 @@ class App extends React.Component {
 
   onSearchSubmit = (parksObj) => {
     console.log(parksObj)
-    this.setState({ parks: parksObj }, () => this.props.history.push('/parks'));
+    let filtered = parksObj.filter((park => park.images.length > 0))
+    this.setState({ parks: filtered }, () => this.props.history.push('/parks'));
         
   };
 
