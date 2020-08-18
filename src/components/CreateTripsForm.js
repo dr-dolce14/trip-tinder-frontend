@@ -114,6 +114,7 @@ class CreateTripsForm extends React.Component {
           
           <select  
           value={this.state.selectedPark}
+          name='park_id'
           onChange={e =>
             this.setState({
               park_id: e.target.value
@@ -123,7 +124,11 @@ class CreateTripsForm extends React.Component {
               {this.state.parks.map(park => {return(
                 <option
                   key={park.id}
+<<<<<<< HEAD
                   value={park.id}
+=======
+                  value={park.name}
+>>>>>>> 6fe0a80a5b2977fa32bbd959159ca620b0312d8a
                   >
                     {park.name}
                   </option>
