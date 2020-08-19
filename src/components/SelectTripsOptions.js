@@ -43,7 +43,7 @@ class SelectTripsOptions extends React.Component {
                     <option value='seeTrips'>See all Trips</option>
                   </select>
                 </label>
-                <input className='btn' type='submit' value='Submit' />
+                <input className='btn btn-full' type='submit' value='Submit' />
               </form>
             </div>
           </section>

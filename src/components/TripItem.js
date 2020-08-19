@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom'
 
 const TripItem = (props) => {
 
-
   const joinTripHandler = async () => {
     console.log('hi')
     await fetch(`http://localhost:3001/api/v1/trips/${props.trip.id}`, {
@@ -15,7 +14,7 @@ const TripItem = (props) => {
       body: JSON.stringify({username: props.user.username, trip_id: props.trip.id})
     })
     .then(resp=> console.log(resp.json()))
-    .then()
+    .then(alert("You have joined this trip"))
   
 }
 
@@ -50,8 +49,7 @@ const tripShowClickHandler = () => {
         <div className='col span-2-of-3'><p>{props.trip.description}</p></div>
       </div>
       <div className="row">
-        <input id="inline-btn" type="button" onClick={()=> console.log(props.trip)} className='btn btn-full' value="Save Trip"/>
-        <input id="inline-btn" type="button" onClick={joinTripHandler} className='btn btn-full' value="Join Trip"/>
+        <input id="inline-btn" type="submit" onClick={joinTripHandler} className='btn btn-full' value="Join Trip"/>
       </div>
     </div>
   );

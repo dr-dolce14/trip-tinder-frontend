@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Input, Checkbox } from 'antd';
+import { Form, Input, Checkbox, Button } from 'antd';
 
 const layout = {
   labelCol: {
@@ -18,7 +18,8 @@ const tailLayout = {
 
 const LoginForm = (props) => {
   const onFinish = values => {
-    props.submitHandler(values)
+    console.log(values)
+   props.submitHandler(values)
     console.log('Success:', values);
   };
 
@@ -71,13 +72,14 @@ const LoginForm = (props) => {
           </Form.Item>
 
           <Form.Item {...tailLayout}>
-            <div className='title'>
-              <input
-                className='btn-full'
-                type='submit'
-                value='Log In'
-                />
-            </div>
+  
+              <Button
+                type='primary'
+                htmlType='submit'
+                className='login-form-button'
+              >
+                Log in
+              </Button>
           </Form.Item>
         </Form>
       </div>

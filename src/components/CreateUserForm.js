@@ -193,7 +193,7 @@ class CreateUserForm extends React.Component {
                 </div>
                 <div className='title col span-3-of-4'>
                   <input
-                    className='button'
+                    className='btn btn-full'
                     type='submit'
                     value='Create your User Profile!'
                   />
