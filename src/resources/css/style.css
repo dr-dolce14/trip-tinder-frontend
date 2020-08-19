@@ -245,20 +245,24 @@ input[type=button]:active {
     margin: 5px auto;
 }
 
+label {
+    margin-top: 15px;
+}
+
 input[type=text], 
 input[type=password], 
-select, 
+select,
 textarea {
     width: 100%;
     padding: 7px;
-    margin: 5px 0px;
+    margin: 5px;
     border-radius: 3px;
     border: 1px solid #dbdbdb
 }
 
 textarea { height: 100px; }
 
-input[type=radio], input[type=text] { margin: 10px 5px 10px 0; }
+input[type=radio], input[type=text] { margin: 0px 5px 10px 0; }
 
 *:focus { outline: none; }
 
