@@ -17,7 +17,7 @@ class TripsLandingPage extends React.Component {
       <section className="landing">
         <Switch>
           <Route
-            path='/trips/create'
+            path='/trips-create'
             render={() => (
               <CreateTripsForm
                 user={this.props.user}

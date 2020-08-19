@@ -17,11 +17,11 @@ class SelectTripsOptions extends React.Component {
         alert("You chose: " + this.state.value)
         e.preventDefault()
         if (this.state.value === 'createTrip') {
-            this.props.history.push('/trips/create')
+            this.props.history.push('/trips-create')
         } else if (this.state.value === 'searchTrips') {
-            this.props.history.push('/trips/search')
+            this.props.history.push('/trips-search')
         } else if (this.state.value === 'seeTrips') {
-            this.props.history.push('/trips/index')
+            this.props.history.push('/trips')
         }
         
     }

@@ -6,10 +6,9 @@ function NavBar(props) {
         <nav>
           <div>
             <div className='main-nav js--main-nav'>
-              <NavLink to='/trips'>Trips</NavLink>
-              <NavLink to='/trips/choose'>Choose An Option!</NavLink>
+              <NavLink to='/trips-choose'>Trips</NavLink>
               <NavLink to='/about'>About Trinder</NavLink>
-              <NavLink to='/parks/search'>Search Parks</NavLink>
+              <NavLink to='/parks/search'>Parks</NavLink>
               <NavLink to='/signup'>Sign up</NavLink>
               
               {props.user ? 

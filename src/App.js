@@ -11,10 +11,8 @@ import Search from "./components/Search";
 import SearchTrips from "./components/SearchTrips";
 import LoginForm from './components/LoginForm'
 import CreateUserForm from "./components/CreateUserForm";
-import Trips from "./components/Trips";
-import Parks from "./components/Parks";
-import Testimonials from "./components/Testimonials";
 import SelectTripsOptions from './components/SelectTripsOptions'
+import CreateTripsForm from './components/CreateTripsForm'
 
 class App extends React.Component {
   state = { selectedPark: '', trips: [], parks: [], user: null, trip: {} }
@@ -47,7 +45,7 @@ class App extends React.Component {
       body: JSON.stringify({user: userObj})
     })
       .then(resp => resp.json())
-      .then(userObj =>this.setState({user: userObj.user}, () => this.props.history.push('/trips/landing')))
+      .then(userObj =>this.setState({user: userObj.user}, () => this.props.history.push('/trips-landing')))
   }
 
   loginHandler = (userInfo) => {
@@ -62,7 +60,7 @@ class App extends React.Component {
       .then((resp) => resp.json())
       .then(userInfo => {
         localStorage.setItem("token", userInfo.jwt)
-        this.setState({user: userInfo.user}, () => this.props.history.push('/trips/landing'));
+        this.setState({user: userInfo.user}, () => this.props.history.push('/trips-landing'));
   })
   }
 
@@ -93,18 +91,21 @@ class App extends React.Component {
     })
   }
 
-
   render() {
     return (
       <div>
-        <Header loginHandler={this.loginHandler}/>
+        <Header
+          user={this.state.user}
+          clickHandler={this.logOutHandler}
+          loginHandler={this.loginHandler}
+        />
         <Switch>
           <Route
             path='/parks/search'
             render={() => <Search submitHandler={this.onSearchSubmit} />}
           />
           <Route
-            path='/trips/search'
+            path='/trips-search'
             render={() => <SearchTrips stateHandler={this.tripsHandler} />}
           />
           <Route
@@ -123,14 +124,22 @@ class App extends React.Component {
             )}
           />
           <Route
-            path='/trips/landing'
+            path='/trips-landing'
             render={() => (
               <TripsLandingPage
                 trips={this.state.trips}
                 user={this.state.user}
                 stateHandler={this.tripsHandler}
                 fetchTrips={this.fetchTrips}
-                
+              />
+            )}
+          />
+          <Route
+            path='/trips-create'
+            render={() => (
+              <CreateTripsForm
+                user={this.props.user}
+                stateHandler={this.tripsHandler}
               />
             )}
           />
@@ -148,11 +157,8 @@ class App extends React.Component {
             path='/login'
             render={() => <LoginForm submitHandler={this.loginHandler} />}
           />
-          <Route 
-          path='/trip/choose' 
-          render={() => <SelectTripsOptions />} 
-          />
-          <Route
+          <Route path='/trips-choose' render={() => <SelectTripsOptions />} />
+          {/* <Route
             exact
             path='/'
             render={() => (
@@ -164,9 +170,8 @@ class App extends React.Component {
                 <CreateUserForm />
               </div>
             )}
-          />
+          /> */}
         </Switch>
-        <NavBar user={this.state.user} clickHandler={this.logOutHandler} />
       </div>
     );
   }
