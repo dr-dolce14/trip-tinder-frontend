@@ -45,7 +45,7 @@ class App extends React.Component {
       body: JSON.stringify({user: userObj})
     })
       .then(resp => resp.json())
-      .then(userObj =>this.setState({user: userObj.user}, () => this.props.history.push('/trips-landing')))
+      .then(userObj =>this.setState({user: userObj.user}, () => this.props.history.push('/trips')))
   }
 
   loginHandler = (userInfo) => {
@@ -60,7 +60,7 @@ class App extends React.Component {
       .then((resp) => resp.json())
       .then(userInfo => {
         localStorage.setItem("token", userInfo.jwt)
-        this.setState({user: userInfo.user}, () => this.props.history.push('/trips-landing'));
+        this.setState({user: userInfo.user}, () => this.props.history.push('/trips'));
   })
   }
 
@@ -123,7 +123,7 @@ class App extends React.Component {
               />
             )}
           />
-          <Route
+          {/* <Route
             path='/trips-landing'
             render={() => (
               <TripsLandingPage
@@ -133,7 +133,7 @@ class App extends React.Component {
                 fetchTrips={this.fetchTrips}
               />
             )}
-          />
+          /> */}
           <Route
             path='/trips-create'
             render={() => (
