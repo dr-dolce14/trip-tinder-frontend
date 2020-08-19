@@ -1,5 +1,7 @@
 import React from "react";
 import TripItem from "../components/TripItem";
+import ParkItem from "../components/ParkItem";
+import TripPark from "../components/TripPark";
 import { Route, Switch, withRouter } from 'react-router-dom'
 
 class TripsContainer extends React.Component {
@@ -16,6 +18,7 @@ class TripsContainer extends React.Component {
         this.setState({ trips: data }, () => this.renderTrips(this.state.trips))
       );
   };
+  
   renderTrips = (tripsArray) => {
     console.log(this.state.trips, this.props.user);
     return tripsArray.map((trip) => (
@@ -34,32 +37,38 @@ class TripsContainer extends React.Component {
               let id = parseInt(match.params.id)
               let foundTrip = this.state.trips.find((trip) => trip.id === id)
               console.log(match)
-              return <TripItem trip={foundTrip} tripShowClickHandler={this.props.tripShowClickHandler}  />
+              return (
+                <div className='trips-container'>
+                  <TripItem
+                    trip={foundTrip}
+                    tripShowClickHandler={this.props.tripShowClickHandler}
+                  />
+                  <TripPark park={foundTrip.park}/>
+                </div>
+              );
 
        
-      }} />
+          }} />
           <Route path='/trips' render={() => {
                  
               return (
-               
-                 <div className='landing'>
+                <div className='landing'>
                   <h2>All Trips</h2>
                   <div className='trips-container'>
-                 {this.renderTrips(this.state.trips)}
-                 </div>
+                    {this.renderTrips(this.state.trips)}
                   </div>
-                  );
-}}/>
+                </div>
+              );
+          }}/>
 
               )
               
-       </Switch>
-       </>
-      }
-      </>
-  )
-}
+      </Switch>
+          </>
     }
+      </>
+  )}
+}
   
 
 export default withRouter(TripsContainer);

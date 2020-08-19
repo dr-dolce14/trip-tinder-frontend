@@ -39,17 +39,12 @@ class ParkItem extends React.Component {
           <a id='link' href={this.props.park.url}>
             Website
           </a>
-          :
         </h3>
         <div class="park-photo-frame">
           <div class='park-photo'>
             <img
-              alt=''
-              src={
-                this.props.park.images[0]
-                  ? this.props.park.images[0].url
-                  : "no image"
-              }
+              alt={this.props.park.name}
+              src={this.props.park.images[0].url}
             />
           </div>
         </div>

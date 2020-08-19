@@ -30,6 +30,12 @@ body
     margin: 0 auto;
 }
 
+.row-left {
+    margin-left: 50px;
+}
+.sub-section {
+    padding: 80px 0px;
+}
 section { padding: 80px 0px; height: 100vh;}
 
 .clearfix {zoom: 1}
@@ -85,8 +91,19 @@ h2:after {
     margin-top: 30px;
 }
 
+h4 {
+    font-weight: 200;
+}
+
 .landing {
-    padding-top: 100px;
+    padding-top: 75px;
+}
+.title {
+    text-align: center;
+}
+
+#first-col {
+    padding-left: 30px;
 }
 
 /*HEADER*/
@@ -120,7 +137,7 @@ header {
 .main-nav {
   float: right;
   list-style: none;
-  margin-top: 55px;
+  margin-top: 50px;
   position: fixed;
   right: 55px;
 }
@@ -148,58 +165,6 @@ header {
   border-bottom: 2px solid #b9e63d;
 }
 
-/*--------------------------------------------------*/
-/*mobile NAVI*/
-/*--------------------------------------------------*/
-
-.mobile-nav-icon {
-    float: right;
-    margin-top: 30px;
-    cursor: pointer;
-    display: none;
-}
-
-.mobile-nav-icon i {
-    font-size: 200%;
-    color: #f7f7f7;
-}
-
-
-/*sticky nav*/
-/*--------------------------------------------------*/
-.sticky {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 2px 2px #efefef;
-    z-index: 9999;
-}
-
-.sticky .main-nav { margin-top: 18px; }
-
-.sticky .main-nav a:link,
-.sticky .main-nav a:visited {
-    padding: 16px 0;
-    color: #555;
-}
-
-/*--------------------------------------------------*/
-/*mobile NAVI*/
-/*--------------------------------------------------*/
-
-.mobile-nav-icon {
-    float: right;
-    margin-top: 30px;
-    cursor: pointer;
-    display: none;
-}
-
-.mobile-nav-icon i {
-    font-size: 200%;
-    color: #f7f7f7;
-}
 
 /*-------------------PARAGRAPHS---------------------*/
 
@@ -214,10 +179,7 @@ header {
     line-height: 145%;
 }
 
-/*----------------------- center  -----------------------*/
-.title {
-    text-align: center;
-}
+
 
 /* ----- BUTTONS ----- */
 .btn:link,
@@ -280,7 +242,7 @@ input[type=button]:active {
 /*--------------------------------------------------*/
 .form {
     width: 60%;
-    margin: 0 auto;
+    margin: 5px auto;
 }
 
 input[type=text], 
@@ -289,13 +251,14 @@ select,
 textarea {
     width: 100%;
     padding: 7px;
+    margin: 5px 0px;
     border-radius: 3px;
     border: 1px solid #dbdbdb
 }
 
 textarea { height: 100px; }
 
-input[type=radio] { margin: 10px 5px 10px 0; }
+input[type=radio], input[type=text] { margin: 10px 5px 10px 0; }
 
 *:focus { outline: none; }
 
@@ -309,8 +272,15 @@ input[type=radio] { margin: 10px 5px 10px 0; }
 
 .trip-card {
     width: 80%;
-    padding: 25px 0;    
+    padding: 25px 0;
+    margin: 0% 10% 5% 10%;  
     background-color: WHITE;
+}
+
+.create-trip-card {
+    height: 100vh;
+    margin: 20px 0px;
+    padding-top: 40px;
 }
 /*--------------------------------------------------*/
 /*parks*/
@@ -320,6 +290,11 @@ input[type=radio] { margin: 10px 5px 10px 0; }
     background-color: white;
     margin: 20px 0px;
     padding-top: 40px;
+}
+.park-description {
+    height: 90vh;
+    background-color: white;
+    margin: 20px 0px;
 }
 
 .park-photo-frame {
@@ -336,14 +311,14 @@ input[type=radio] { margin: 10px 5px 10px 0; }
 .park-photo img {
     height: 100%;
     width: 100%;
-    opacity: 1;
+    opacity: .5;
     transition: opacity 0.5s, -webkit-transform 0.5s;
     -o-transition: transform 0.5s, opacity 0.5s;
     transition: transform 0.5s, opacity 0.5s;
     transition: transform 0.5s, opacity 0.5s;
 }
 .park-photo img:hover {
-    opacity: .5;
+    opacity: 1;
 }
 
 .title > a{
@@ -354,32 +329,41 @@ input[type=radio] { margin: 10px 5px 10px 0; }
     text-decoration: none;
     color: #a1d11d;
 }
+
 /*--------------------------------------------------*/
-/*animations*/
+/*Trips Showcase*/
 /*--------------------------------------------------*/
+    
+.section-trips { padding: 0; }
 
-.js--wp-1,
-.js--wp-2,
-.js--wp-3 {
-  opacity: 0;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
+.trips-card {
+    padding-top: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+
 }
 
-.js--wp-4 {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
+.trips-photo-frame {
+    width: 33.3%;
+    overflow: hidden;
+    float: left
+}
+.trips-photo {
+    justify-content: bottom;
+    height: 200px;
+
 }
 
-.js--wp-1.animate__fadeIn,
-.js--wp-3.animate__fadeIn {
-  opacity: 1;
+.trips-photo img {
+    width: 100%;
+    height: 100%;
+    opacity: .5;
+    transition: opacity 0.5s, -webkit-transform 0.5s;
+    -o-transition: transform 0.5s, opacity 0.5s;
+    transition: transform 0.5s, opacity 0.5s;
+    transition: transform 0.5s, opacity 0.5s;
 }
-
-.js--wp-4.animate__pulse {
-  opacity: 1;
-}
-
-.js--wp-2.animate__fadeInUp {
-  opacity: 1;
+.trips-photo img:hover {
+    opacity: 1;
 }

@@ -75,121 +75,132 @@ class CreateUserForm extends React.Component {
 
   render() {
     return (
-      <section className="form landing" id="sign-up">
-        <div className="row">
+      <section className='form landing' id='sign-up'>
+        <div className='row'>
           <h2>Sign up Here</h2>
-        </div>
-        <div className="row">
-          <form onSubmit={this.submitHandler}>
-            <div className="row">
-            <div className="col span-1-of-4">
-                <label htmlFor="first_name">First Name</label>
-            </div>
 
-            <div className="col span-3-of-4">
-              <input
-                type='text'
-                name='first_name'
-                placeholder='enter your first name'
-                value={this.state.first_name}
-                onChange={this.changeHandler} noValidate
-              />
-              {(this.state.errors.first_name.length > 0) && 
-              (<span>{this.state.errors.first_name}</span>)}
-            </div>
-          </div>
+          <div className='row'>
+            <form onSubmit={this.submitHandler}>
+              <div className='row'>
+                <div className='col span-1-of-4'>
+                  <label htmlFor='first_name'>First Name</label>
+                </div>
 
-          <div className="row">
-            <div className="col span-1-of-4">
-              <label htmlFor="last_name">Last Name</label>
-          </div>
-
-          <div className="col span-3-of-4">
-            <input
-              type='text'
-              name='last_name'
-              placeholder='enter your last name'
-              value={this.state.last_name}
-              onChange={this.changeHandler} noValidate
-            />
-            {(this.state.errors.last_name.length > 0 )&&
-            (<span>{this.state.errors.last_name}</span>)}
-            </div>
-            </div>
-              <div className="row">
-            <div className="col span-1-of-4">
-              <label htmlFor="username">Username</label>
-          </div>
-
-          <div className="col span-3-of-4">
-            <input
-              type='text'
-              name='username'
-              placeholder='enter a user name'
-              value={this.state.username}
-              onChange={this.changeHandler} noValidate
-            />
-             {(this.state.errors.username.length > 0 )&&
-            (<span>{this.state.errors.username}</span>)}
-            </div>
-            </div>
-
-            <div className="row">
-            <div className="col span-1-of-4">
-              <label htmlFor="password">Password</label>
-          </div>
-
-          <div className="col span-3-of-4">
-            <input
-              type='password'
-              name='password'
-              placeholder='enter a password'
-              value={this.state.password}
-              onChange={this.changeHandler}
-            />
-            </div>
-          </div>
-
-            <div className="row">
-            <div className="col span-1-of-4">
-              <label htmlFor="bio">Tell Us About Yourself</label>
-          </div>
-
-          <div className="col span-3-of-4">
-            <textarea
-              type='text'
-              name='bio'
-              placeholder='briefly describe yourself'
-              value={this.state.bio}
-              onChange={this.changeHandler}
-            />
-            </div>
+                <div className='col span-3-of-4'>
+                  <input
+                    type='text'
+                    name='first_name'
+                    placeholder='enter your first name'
+                    value={this.state.first_name}
+                    onChange={this.changeHandler}
+                    noValidate
+                  />
+                  {this.state.errors.first_name.length > 0 && (
+                    <span>{this.state.errors.first_name}</span>
+                  )}
+                </div>
               </div>
 
-              <div className="row">
-            <div className="col span-1-of-4">
-              <label htmlFor="avatar">Upload an image</label>
-          </div>
-
-          <div className="col span-3-of-4">
-            <input
-              type='text'
-              name='avatar'
-              placeholder='url for avatar image'
-              value={this.state.avatar}
-              onChange={this.changeHandler}
-            />
-            </div>
-            </div>
-             <div className="row">
-                <div className="col span-1-of-4">
-                    <label>&nbsp;</label>
+              <div className='row'>
+                <div className='col span-1-of-4'>
+                  <label htmlFor='last_name'>Last Name</label>
                 </div>
-            <div className="title col span-3-of-4">
-            <input className="button" type='submit' value='Create your User Profile!' />
-            </div>
+
+                <div className='col span-3-of-4'>
+                  <input
+                    type='text'
+                    name='last_name'
+                    placeholder='enter your last name'
+                    value={this.state.last_name}
+                    onChange={this.changeHandler}
+                    noValidate
+                  />
+                  {this.state.errors.last_name.length > 0 && (
+                    <span>{this.state.errors.last_name}</span>
+                  )}
+                </div>
+              </div>
+              <div className='row'>
+                <div className='col span-1-of-4'>
+                  <label htmlFor='username'>Username</label>
+                </div>
+
+                <div className='col span-3-of-4'>
+                  <input
+                    type='text'
+                    name='username'
+                    placeholder='enter a user name'
+                    value={this.state.username}
+                    onChange={this.changeHandler}
+                    noValidate
+                  />
+                  {this.state.errors.username.length > 0 && (
+                    <span>{this.state.errors.username}</span>
+                  )}
+                </div>
+              </div>
+
+              <div className='row'>
+                <div className='col span-1-of-4'>
+                  <label htmlFor='password'>Password</label>
+                </div>
+
+                <div className='col span-3-of-4'>
+                  <input
+                    type='password'
+                    name='password'
+                    placeholder='enter a password'
+                    value={this.state.password}
+                    onChange={this.changeHandler}
+                  />
+                </div>
+              </div>
+
+              <div className='row'>
+                <div className='col span-1-of-4'>
+                  <label htmlFor='bio'>Tell Us About Yourself</label>
+                </div>
+
+                <div className='col span-3-of-4'>
+                  <textarea
+                    type='text'
+                    name='bio'
+                    placeholder='briefly describe yourself'
+                    value={this.state.bio}
+                    onChange={this.changeHandler}
+                  />
+                </div>
+              </div>
+
+              <div className='row'>
+                <div className='col span-1-of-4'>
+                  <label htmlFor='avatar'>Upload an image</label>
+                </div>
+
+                <div className='col span-3-of-4'>
+                  <input
+                    type='text'
+                    name='avatar'
+                    placeholder='url for avatar image'
+                    value={this.state.avatar}
+                    onChange={this.changeHandler}
+                  />
+                </div>
+              </div>
+              <div className='row'>
+                <div className='col span-1-of-4'>
+                  <label>&nbsp;</label>
+                </div>
+                <div className='title col span-3-of-4'>
+                  <input
+                    className='button'
+                    type='submit'
+                    value='Create your User Profile!'
+                  />
+                </div>
+              </div>
+            </form>
           </div>
-          </form>
         </div>
       </section>
     );

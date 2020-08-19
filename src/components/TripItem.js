@@ -47,7 +47,7 @@ const tripShowClickHandler = () => {
           <h3>Description:</h3>
         </div>
 
-        <div className='col span-2-of-3'>{props.trip.description}</div>
+        <div className='col span-2-of-3'><p>{props.trip.description}</p></div>
       </div>
       <div className="row">
         <input id="inline-btn" type="button" onClick={()=> console.log(props.trip)} className='btn btn-full' value="Save Trip"/>

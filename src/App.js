@@ -6,7 +6,7 @@ import TripsContainer from "./containers/TripsContainer";
 import ParksContainer from "./containers/ParksContainer";
 import Header from './components/Header'
 import About from "./components/About";
-import NavBar from "./components/NavBar";
+import Trips from "./components/Trips";
 import Search from "./components/Search";
 import SearchTrips from "./components/SearchTrips";
 import LoginForm from './components/LoginForm'
@@ -158,19 +158,17 @@ class App extends React.Component {
             render={() => <LoginForm submitHandler={this.loginHandler} />}
           />
           <Route path='/trips-choose' render={() => <SelectTripsOptions />} />
-          {/* <Route
+          <Route
             exact
             path='/'
             render={() => (
               <div>
                 <About />
-                <Trips />
-                <Parks />
-                <Testimonials />
+                <Trips/>
                 <CreateUserForm />
               </div>
             )}
-          /> */}
+          />
         </Switch>
       </div>
     );

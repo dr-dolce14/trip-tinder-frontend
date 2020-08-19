@@ -55,7 +55,7 @@ class SearchTrips extends React.Component {
 
   render() {
     return (
-      <section className='section-trips js--section-trips' id='trips'>
+      <section id='trips'>
         <div></div>
         <div className='row'>
           <h2 className='title'>Search for Trips:</h2>

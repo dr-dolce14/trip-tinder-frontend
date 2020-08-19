@@ -20,15 +20,15 @@ const Search = (props) => {
     props.submitHandler(parksObj)
   };
     return (
-      <section className='section-parks js--section-parks' id='parks'>
+      <section id='parks'>
         <div className='box'>
-          <h3 className='title'>Search Our Parks</h3>
+          <h2 className='title'>Search Our Parks</h2>
         </div>
         <div className='row'>
           <form className='form' onSubmit={onSubmit}>
             <div className='col span-2-of-2'>
               <label for='state' className='row'>
-                State
+                <h3 className='title'>Choose a State</h3>
               </label>
               <select name='state' onChange={(e) => setSearchState(e.target.value)}>
                 <option value='' disabled selected hidden></option>
