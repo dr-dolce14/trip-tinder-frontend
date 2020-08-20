@@ -128,7 +128,6 @@ class App extends React.Component {
               />
             )}
           />
-
           <Route
             path='/trips-create'
             render={() => (
@@ -152,7 +151,7 @@ class App extends React.Component {
             path='/login'
             render={() => <LoginForm submitHandler={this.loginHandler} />}
           />
-          <Route path='/trips-choose' render={() => <SelectTripsOptions />} />
+          <Route path='/trips-choose' render={() => <SelectTripsOptions fetchParks={this.fetchParks}/>} />
           <Route
             exact
             path='/'

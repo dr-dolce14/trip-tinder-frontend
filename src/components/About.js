@@ -11,8 +11,6 @@ class Welcome extends React.Component {
               Here at Trinder, we know the importance of the preservation and
               the power of connecting to nature. Our mission is to inspire
               people to explore while bringing them closer together.
-              {/* <h2>“Between every two pines is a doorway to a new world.”</h2>
-            <h2>“One touch of nature makes the whole world kin.”</h2> */}
             </p>
           </div>
 

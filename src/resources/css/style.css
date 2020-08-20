@@ -27,7 +27,7 @@ body
 
 .row {
     max-width: 1140px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
 }
 
 .row-left {
@@ -268,9 +268,10 @@ textarea { height: 100px; }
 
 .trip-card {
     width: 80%;
-    padding: 25px 0;
+    padding: 25px;
     margin: 0% 10% 5% 10%;  
     background-color: WHITE;
+    border-radius: 10px;
 }
 
 .create-trip-card {

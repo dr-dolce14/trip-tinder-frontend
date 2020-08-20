@@ -9,12 +9,11 @@ class CreateTripsForm extends React.Component {
     start_date: "",
     end_date: "",
     park_id: "",
-    difficulty_rating: '',
+    difficulty_rating: "",
     parks: [],
   };
 
   createTripHandler = async (tripObj) => {
-    console.log(this.props.user)
     let auth_token = this.props.user.jwt;
     await fetch("http://localhost:3001/api/v1/trips", {
       method: "POST",
@@ -26,19 +25,16 @@ class CreateTripsForm extends React.Component {
       body: JSON.stringify({ trip: tripObj, trip_lead: this.props.user }),
     })
       .then((resp) => resp.json())
-      //how to reroute to /trips?
       .then((newTrip) => this.props.stateHandler(newTrip));
   };
 
   changeHandler = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
-    })
-    console.log(e.target.value);
+    });
   };
 
   submitHandler = (e) => {
-    console.log(this.props, this.state);
     e.preventDefault();
     const newTrip = {
       name: this.state.name,
@@ -48,24 +44,16 @@ class CreateTripsForm extends React.Component {
       end_date: this.state.end_date,
       park_id: this.state.park_id,
       difficulty_rating: this.state.difficulty_rating,
-    }
-    console.log(newTrip)
-    this.createTripHandler(this.state);
+    };
+    this.createTripHandler(newTrip);
   };
 
-
   componentDidMount() {
-    let initialParks = []
     fetch("http://localhost:3001/api/v1/parks")
-    .then(resp => resp.json())
-    .then(data => {
-      initialParks = data.map(park => {
-        return park
-      })
-      this.setState({
-        parks: initialParks
-      })
-    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        this.setState({ parks: data });
+      });
   }
 
   render() {
@@ -81,15 +69,6 @@ class CreateTripsForm extends React.Component {
                   name='name'
                   placeholder='Enter a name for your trip!'
                   value={this.state.name}
-                  onChange={this.changeHandler}
-                />
-              </div>
-              <div className='row'>
-                <input
-                  type='text'
-                  name='state'
-                  placeholder='What state will your trip be in?'
-                  value={this.state.state}
                   onChange={this.changeHandler}
                 />
               </div>
@@ -125,12 +104,10 @@ class CreateTripsForm extends React.Component {
                 <select
                   name='park_id'
                   onChange={(e) =>
-                    this.setState(
-                      {
-                        park_id: e.target.value,
-                      },
-                      console.log(e.target.value)
-                    )
+                    this.setState({
+                      park_id: e.target.value.split(",")[0],
+                      state: e.target.value.split(",")[1],
+                    })
                   }
                 >
                   <option value='' disabled selected hidden>
@@ -138,7 +115,7 @@ class CreateTripsForm extends React.Component {
                   </option>
                   {this.state.parks.map((park) => {
                     return (
-                      <option key={park.id} value={park.id}>
+                      <option key={park.id} value={[park.id, park.state]}>
                         {park.name}
                       </option>
                     );
@@ -164,7 +141,14 @@ class CreateTripsForm extends React.Component {
                 </select>
               </div>
 
-             <div className='title'> <input className='button' type='submit' value='Create this trip!' /></div>
+              <div className='title'>
+                {" "}
+                <input
+                  className='btn btn-full'
+                  type='submit'
+                  value='Create Trip!'
+                />
+              </div>
             </form>
           </div>
         </div>
@@ -173,4 +157,3 @@ class CreateTripsForm extends React.Component {
   }
 }
 export default CreateTripsForm;
-

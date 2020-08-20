@@ -16,41 +16,39 @@ class CreateUserForm extends React.Component {
   };
 
   validateForm = (errors) => {
-      let valid = true
-      Object.values(errors).forEach(
-          (val) => val.length > 0 && (valid = false)
-      )
-      return valid
+    let valid = true
+    Object.values(errors).forEach(
+        (val) => val.length > 0 && (valid = false)
+    )
+    return valid
   }
 
   changeHandler = (e) => {
-      const { name, value } = e.target
-      let errors = this.state.errors
-      
-      switch (name) {
-          case 'first_name':
-              errors.first_name =
-              value.length < 2
-              ? 'First Name must be at least 4 characters long!'
-              : '';
-              break;
-          case 'last_name':
-              errors.last_name =
-              value.length < 4
-              ? 'Last Name must be at least 4 characters long!'
-              : '';
-              break;
-         case 'username':
-             errors.username =
-             value.length < 6
-             ? 'Username must be a least 6 characters long!'
-             : '';
-             break;
-             default:
-                 break;
-
-      }
-
+    const { name, value } = e.target
+    let errors = this.state.errors
+    
+    switch (name) {
+      case 'first_name':
+        errors.first_name =
+        value.length < 2
+        ? 'First Name must be at least 4 characters long!'
+        : '';
+        break;
+      case 'last_name':
+        errors.last_name =
+        value.length < 4
+        ? 'Last Name must be at least 4 characters long!'
+        : '';
+        break;
+      case 'username':
+        errors.username =
+        value.length < 6
+        ? 'Username must be a least 6 characters long!'
+        : '';
+        break;
+        default:
+      break;
+    }
     this.setState({ errors, [name]: value})
   };
 
