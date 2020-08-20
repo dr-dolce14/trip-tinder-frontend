@@ -1,12 +1,10 @@
 import React from 'react' 
-import Test from "./NavBarTest";
 import NavBar from './NavBar'
 
 const Header = (props) => {
   return(
   <header>
-    <NavBar/>
-    {/* <Test/> */}
+    <NavBar user={props.user} />
     <div className='row'>
       <div className='hero-text-box'>
         <h1>

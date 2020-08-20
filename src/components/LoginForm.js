@@ -1,90 +1,57 @@
-import React from "react";
-import { Form, Input, Checkbox, Button } from 'antd';
-
-const layout = {
-  labelCol: {
-    span: 8,
-  },
-  wrapperCol: {
-    span: 16,
-  },
-};
-const tailLayout = {
-  wrapperCol: {
-    offset: 8,
-    span: 16,
-  },
-};
+import React, { useState } from "react";
 
 const LoginForm = (props) => {
-  const onFinish = values => {
-    console.log(values)
-   props.submitHandler(values)
-    console.log('Success:', values);
-  };
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
 
-  const onFinishFailed = errorInfo => {
-    console.log('Failed:', errorInfo);
-  };
+  const usernameHandler = (e) => setUsername(e.target.value)
+  
+  const passwordHandler = (e) => setPassword(e.target.value)
+
+  const submitHandler = (e) => {
+    e.preventDefault()
+    props.submitHandler({username, password})
+  }
 
   return (
     <section className='login form'>
       <div className='row'>
-        <h2 id='/login'>Log In</h2>
-        <Form
-          {...layout}
-          name='basic'
-          initialValues={{
-            remember: true,
-          }}
-          onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
+
+        <h2 id='/login'>
+          Log In
+        </h2>
+
+        <form
           className='sign-up-form'
+          onSubmit={(e) => submitHandler(e)}
         >
-          <Form.Item
-            label='Username'
+          <input
+            label='username'
             name='username'
-            rules={[
-              {
-                required: true,
-                message: "Please input your username!",
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
+            type='text'
+            value={username}
+            onChange={usernameHandler}
+          />
 
-          <Form.Item
-            label='Password'
+          <input
+            label='password'
             name='password'
-            rules={[
-              {
-                required: true,
-                message: "Please input your password!",
-              },
-            ]}
-          >
-            <Input.Password />
-          </Form.Item>
+            type="password"
+            value={password}
+            onChange={passwordHandler}
+          />
 
-          <Form.Item {...tailLayout} name='remember' valuePropName='checked'>
-            <Checkbox>Remember me</Checkbox>
-          </Form.Item>
+          <div className='title'>
+            <input
+              type='submit'
+              className='btn btn-full'
+              value='log in'
+            />
+          </div>
 
-          <Form.Item {...tailLayout}>
-  
-              <Button
-                type='primary'
-                htmlType='submit'
-                className='login-form-button'
-              >
-                Log in
-              </Button>
-          </Form.Item>
-        </Form>
+        </form>
       </div>
     </section>
   );
 };
 export default LoginForm;
-

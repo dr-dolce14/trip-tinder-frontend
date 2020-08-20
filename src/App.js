@@ -1,56 +1,36 @@
 import React from "react";
-
-import { Route, withRouter, Switch } from "react-router-dom";
+import { Route, withRouter, Redirect, Switch } from "react-router-dom";
 import TripsContainer from "./containers/TripsContainer";
 import ParksContainer from "./containers/ParksContainer";
 import Header from "./components/Header";
 import About from "./components/About";
-import Trips from "./components/Trips";
-import Search from "./components/Search";
-import SearchTrips from "./components/SearchTrips";
 import LoginForm from "./components/LoginForm";
 import CreateUserForm from "./components/CreateUserForm";
-import SelectTripsOptions from "./components/SelectTripsOptions";
+import Trips from "./components/Trips";
+import SearchParks from "./components/SearchParks";
+import SearchTrips from "./components/SearchTrips";
 import CreateTripsForm from "./components/CreateTripsForm";
+import SelectTripsOptions from "./components/SelectTripsOptions";
 
 class App extends React.Component {
   state = { selectedPark: "", trips: [], parks: [], user: null, trip: {} };
 
   componentDidMount() {
     const token = localStorage.getItem("token");
-    if (token) {
+    if (token !== 'undefined') {
       fetch("http://localhost:3001/api/v1/profile", {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
       })
-        .then((resp) => resp.json())
-        .then((data) =>
-          this.setState({ user: data.user }, () => this.props.history.push("/"))
-        );
+      .then(resp=>resp.json())
+      .then(data => this.setState({user: data.user }))
+    } else {
+      this.props.history.push('/login')
     }
-    console.log(this.state.user);
   }
 
-  signUpHandler = (userObj) => {
-    console.log(userObj);
-    fetch("http://localhost:3001/api/v1/users", {
-      method: "POST",
-      headers: {
-        accepts: "application/json",
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ user: userObj }),
-    })
-      .then((resp) => resp.json())
-      .then((userObj) =>
-        this.setState({ user: userObj.user }, () =>
-          this.props.history.push("/trips")
-        )
-      );
-      console.log(this.state)
-  };
-
   loginHandler = (userInfo) => {
+    console.log(userInfo)
     fetch("http://localhost:3001/api/v1/login", {
       method: "POST",
       headers: {
@@ -59,16 +39,35 @@ class App extends React.Component {
       },
       body: JSON.stringify({ user: userInfo }),
     })
+    .then(resp=>resp.json())
+    .then(data => {this.validUser(data)})
+  };
 
+  validUser = (data) => {
+    if (data.message) {
+      alert(data.message)
+    } else {
+      localStorage.setItem('token', data.jwt)
+      this.setState({user: data.user }, () => this.props.history.push('/trips-choose'))
+    }
+  }
+
+  signUpHandler = (userObj) => {
+  console.log(userObj);
+  fetch("http://localhost:3001/api/v1/users", {
+    method: "POST",
+    headers: {
+      accepts: "application/json",
+      "content-type": "application/json",
+    },
+      body: JSON.stringify({ user: userObj }),
+    })
     .then((resp) => resp.json())
-    .then((userInfo) => {
-      localStorage.setItem("token", userInfo.jwt);
-      this.setState(
-        { user: userInfo.user },
-        () => this.props.history.push("/trips-choose")
-      );
-      console.log(this.state.user)
-    });
+    .then((userObj) =>
+      this.setState({ user: userObj.user }, () =>
+        this.props.history.push("/trips-choose")
+      )
+    );
   };
 
   logOutHandler = () => {
@@ -83,7 +82,6 @@ class App extends React.Component {
     this.setState({ parks: filtered }, () => this.props.history.push("/parks"));
   };
 
-  //this.state is updated to add a trip when a user who is signed in creates a new trip
   tripsHandler = (tripsObj) => {
     console.log(tripsObj, this.state.user);
     this.setState({ trips: [...this.state.trips, tripsObj] }, () =>
@@ -98,6 +96,7 @@ class App extends React.Component {
   };
 
   render() {
+    console.log('current user', this.state.user)
     return (
       <div>
         <Header
@@ -108,7 +107,7 @@ class App extends React.Component {
         <Switch>
           <Route
             path='/parks/search'
-            render={() => <Search submitHandler={this.onSearchSubmit} />}
+            render={() => <SearchParks submitHandler={this.onSearchSubmit} />}
           />
           <Route
             path='/trips-search'
@@ -129,17 +128,7 @@ class App extends React.Component {
               />
             )}
           />
-          {/* <Route
-            path='/trips-landing'
-            render={() => (
-              <TripsLandingPage
-                trips={this.state.trips}
-                user={this.state.user}
-                stateHandler={this.tripsHandler}
-                fetchTrips={this.fetchTrips}
-              />
-            )}
-          /> */}
+
           <Route
             path='/trips-create'
             render={() => (

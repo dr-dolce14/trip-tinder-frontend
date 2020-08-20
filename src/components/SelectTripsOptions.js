@@ -27,6 +27,7 @@ class SelectTripsOptions extends React.Component {
     }
 
     render() {
+      console.log(this.props.user)
         return (
           <section classNAme='row'>
             <div className='landing form'>

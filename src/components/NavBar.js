@@ -8,8 +8,6 @@ function NavBar(props) {
         <div>
           <div className='main-nav js--main-nav'>
             <NavLink to='/trips-choose'>Trips</NavLink>
-              {/* <Link to='#trips'>TripsTest</Link> */}
-            {/* <Link to='#about-trinder'>About Trinder</Link> */}
             <NavLink to='/parks/search'>Parks</NavLink>
             <NavLink to='/about'>About</NavLink>
             <NavLink to='/signup'>Sign up</NavLink>

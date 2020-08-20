@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import nps from "../apis/nps";
 import states from './states'
 
-const Search = (props) => {
+const SearchParks = (props) => {
   const [searchState, setSearchState] = useState('')
 
   const onSubmit =  (e) => {
@@ -50,5 +50,5 @@ const Search = (props) => {
     );
 }
 
-export default Search;
+export default SearchParks;
   

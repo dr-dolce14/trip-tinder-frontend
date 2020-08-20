@@ -199,6 +199,8 @@ input[type=button] {
 .btn-full:link,
 .btn-full:visited,
 input[type=submit],
+input[type=button], 
+input[type=submit],
 input[type=button] {
     background-color: #b9e63d;
     border: 1px solid #b9e63d;
@@ -206,17 +208,12 @@ input[type=button] {
     margin-top: 15px;
 }
 
-.btn-ghost:link,
-.btn-ghost:visited {
-    border: 1px solid #b9e63d;
-    color: #b9e63d;
-}
 
 .btn:hover,
 .btn:active,
-input[type=submit],
+input[type=submit]:hover,
 input[type=button]:hover,
-input[type=submit],
+input[type=submit]:active,
 input[type=button]:active {
     background-color: #a1d11d;;
 }
@@ -224,12 +221,6 @@ input[type=button]:active {
 .btn-full:hover,
 .btn-full:active {
     border: 1px solid #a1d11d;
-}
-
-.btn-ghost:hover,
-.btn-ghost:active {
-    border: 1px solid #a1d11d;
-    color: #fff;
 }
 
 #inline-btn {
@@ -243,6 +234,7 @@ input[type=button]:active {
 .form {
     width: 60%;
     margin: 5px auto;
+    align-content: center;
 }
 
 label {
@@ -262,7 +254,7 @@ textarea {
 
 textarea { height: 100px; }
 
-input[type=radio], input[type=text] { margin: 0px 5px 10px 0; }
+/* input[type=radio], input[type=text] { margin: 0px 5px 10px 0; } */
 
 *:focus { outline: none; }
 
